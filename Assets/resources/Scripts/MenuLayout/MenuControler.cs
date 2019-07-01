@@ -37,6 +37,10 @@ public class MenuControler : MonoBehaviour
         scrollRect = (MyScrollRect)scroll.GetComponent(typeof(MyScrollRect));
 
         alphaX = panel_transform.sizeDelta.x * 0.5f;
+
+        //최근 진행한 스테이지로 첫화면 이동
+        panel_transform.localPosition = new Vector3(-Screen.width * (StaticInfoManager.current_stage - 1), panel_transform.localPosition.y, panel_transform.localPosition.z);
+
         m_audioSource = gameObject.GetComponent<AudioSource>();
         //stage_clip[0] = Resources.Load("music/menu_stage1") as AudioClip;
         //stage_clip[1] = Resources.Load("music/menu_stage2") as AudioClip;

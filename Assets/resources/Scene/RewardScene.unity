@@ -1650,11 +1650,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8684402575239254581, guid: 006c927f2383b40d59477557d24608d5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5310307030553860785, guid: 006c927f2383b40d59477557d24608d5, type: 3}
     - {fileID: 5310307030553860782, guid: 006c927f2383b40d59477557d24608d5, type: 3}
     - {fileID: 5310307030553860784, guid: 006c927f2383b40d59477557d24608d5, type: 3}
     - {fileID: 5310307030553860787, guid: 006c927f2383b40d59477557d24608d5, type: 3}
+    - {fileID: 8684402575239254581, guid: 006c927f2383b40d59477557d24608d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 006c927f2383b40d59477557d24608d5, type: 3}
 --- !u!1 &918155303 stripped
 GameObject:

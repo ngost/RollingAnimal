@@ -81,8 +81,6 @@ public class PlayerControler : MonoBehaviour
         comboText.fontSize = (int)Mathf.Round(Screen.width * 0.13f);
         percent_text.fontSize = (int)Mathf.Round(Screen.width * 0.1f);
         percent_text.text = "0" + " %";
-        percent_text.text = ((transform.position.z / endPositionZ) * 100).ToString();
-        percent_text.text = transform.position.z.ToString();
         StartCoroutine("StartCountDown");
 
     }

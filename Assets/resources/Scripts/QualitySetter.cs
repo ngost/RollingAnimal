@@ -13,7 +13,7 @@ public class QualitySetter : MonoBehaviour
          InputString gives the string representation of the input button that is being pressed.
          Hence within the Cases each having " ".
         */
-        Application.targetFrameRate = 60;
+//        Application.targetFrameRate = 60;
 
         switch (DataLoadAndSave.LoadGraphicQuality())
         {

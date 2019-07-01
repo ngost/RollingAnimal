@@ -268,18 +268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c468f926152f438eada63bc709704ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  center: {fileID: 0}
-  up: {fileID: 0}
-  down: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
-  speed: 0.01
+  rotationPeriod: 0.2
+  sideLength: 1
   anykeyTouched: 0
   stopflag: 0
-  input: 1
-  keyboardInput: 0
-  step: 3
   percent: 0
   maxCombo: 0
 --- !u!1001 &5310307030207690100
@@ -337,13 +329,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4683372607959240, guid: 398894842e7343b8812bd64f5f04681e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4814131145967914, guid: 398894842e7343b8812bd64f5f04681e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4683372607959240, guid: 398894842e7343b8812bd64f5f04681e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4349303564065900, guid: 398894842e7343b8812bd64f5f04681e, type: 3}
       propertyPath: m_LocalRotation.y

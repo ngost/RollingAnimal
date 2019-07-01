@@ -47,7 +47,7 @@ public class GetRewardValue : MonoBehaviour
 
         if (StaticInfoManager.clearPercent < 10)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "한 발자국 움직이셨어요";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "ㅋㅋ..";
         }else if(StaticInfoManager.clearPercent >= 10 && StaticInfoManager.clearPercent < 30)
         {
             stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "좀 더 분발해보세요!";
@@ -58,7 +58,7 @@ public class GetRewardValue : MonoBehaviour
         }
         else if (StaticInfoManager.clearPercent >= 60 && StaticInfoManager.clearPercent < 80)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "적응해 가시네요";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "적응해 가시는군";
         }
         else if (StaticInfoManager.clearPercent >= 80 && StaticInfoManager.clearPercent < 100)
         {
@@ -163,10 +163,45 @@ public class GetRewardValue : MonoBehaviour
 
     public void ForceCoinRewardProcess()
     {
+        ForceViewAllReward();
         VisibleTimerOfRewardObj.times = -1f;
         ViewRewardCoins = RealRewardCoins;
         rewardPrcessStatus = true;
         ValueReward.text = ViewRewardCoins + " Coins";
+    }
+
+    public void ForceViewAllReward()
+    {
+        ((VisibleTimer)GameObject.Find("MaxCombo").GetComponent(typeof(VisibleTimer))).times = 0f;
+        ((VisibleTimer)GameObject.Find("ClearPercent").GetComponent(typeof(VisibleTimer))).times = 0f;
+        ((VisibleTimer)GameObject.Find("TotalReward").GetComponent(typeof(VisibleTimer))).times = 0f;
+        ((VisibleTimer)GameObject.Find("ValueCombo").GetComponent(typeof(VisibleTimer))).times = 0f;
+        ((VisibleTimer)GameObject.Find("ValuePercent").GetComponent(typeof(VisibleTimer))).times = 0f;
+
+        stageFailMessage.GetComponent<VisibleTimer>().times = 0f;
+        try
+        {
+            GameObject message = GameObject.Find("NewRecordMessage");
+            if(message != null)
+                message.GetComponent<VisibleTimer>().times = 0f;
+        }
+        catch (MissingReferenceException e)
+        {
+
+        }
+
+        try
+        {
+            GameObject message = GameObject.Find("StageClearMessage");
+            if (message != null)
+                message.GetComponent<VisibleTimer>().times = 0f;
+        }
+        catch (MissingReferenceException e)
+        {
+
+        }
+
+
     }
 
     int CalculateReward()
