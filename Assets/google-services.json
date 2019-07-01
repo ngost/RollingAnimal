@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "124970804252",
+    "firebase_url": "https://jump-ground-a6dfd.firebaseio.com",
+    "project_id": "jump-ground-a6dfd",
+    "storage_bucket": "jump-ground-a6dfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:124970804252:android:c418ccfd781d2ed2",
+        "android_client_info": {
+          "package_name": "com.easyjin.jumpground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "124970804252-fcecabh7lkh8dsvd907rvc82t886f9b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtiHhPvS_w6Wbq4TWykXwhY9KQkqNr6rQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "124970804252-fcecabh7lkh8dsvd907rvc82t886f9b0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-4673938201505785~9373376967"
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,138 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using System;
+public class MenuControler : MonoBehaviour
+{
+    GameObject panel;
+    Rigidbody panel_rg;
+    RectTransform panel_transform;
+    float alphaX;
+    int last_stage_number;
+    AudioSource m_audioSource;
+    public AudioClip[] stage_clip;
+    public int total_stage_num;
+    GameObject scroll;
+    MyScrollRect scrollRect;
+    Image leftArrow, rightArrow;
+    Text stageNameText, stageClearPercentText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        if (!StaticInfoManager.isStageNameInit)
+        {
+            DataLoadAndSave.AddNewStageName(1,"구름 많은 날");
+            DataLoadAndSave.AddNewStageName(2, "계곡에서 보는 노을");
+            DataLoadAndSave.AddNewStageName(3, "눈 쌓인 광산");
+            StaticInfoManager.isStageNameInit = true;
+        }
+        //stage_clip = new AudioClip[total_stage_num];
+        last_stage_number = 0;
+        panel = gameObject.transform.parent.gameObject;
+        panel_transform = panel.GetComponent<RectTransform>();
+        panel_rg = panel.GetComponent<Rigidbody>();
+        scroll = panel.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+        scrollRect = (MyScrollRect)scroll.GetComponent(typeof(MyScrollRect));
+
+        alphaX = panel_transform.sizeDelta.x * 0.5f;
+        m_audioSource = gameObject.GetComponent<AudioSource>();
+        //stage_clip[0] = Resources.Load("music/menu_stage1") as AudioClip;
+        //stage_clip[1] = Resources.Load("music/menu_stage2") as AudioClip;
+        //stage_clip[2] = Resources.Load("music/menu_stage3") as AudioClip;
+        //stage_clip[3] = Resources.Load("music/menu_stage4") as AudioClip;
+        //stage_clip[4] = Resources.Load("music/menu_stage5") as AudioClip;
+        stageNameText = GameObject.Find("StageName").GetComponent<Text>();
+        stageClearPercentText = GameObject.Find("StageClearPercent").GetComponent<Text>();
+        leftArrow = GameObject.Find("LeftArrow").GetComponent<Image>();
+        rightArrow = GameObject.Find("RightArrow").GetComponent<Image>();
+
+        //init only stage 1
+        string stageName = DataLoadAndSave.LoadStageName(1);
+        int clearPercent = DataLoadAndSave.LoadStageClearPercent(1);
+        stageNameText.text = stageName;
+        stageClearPercentText.text = clearPercent + " % 클리어";
+
+        if (!DataLoadAndSave.LoadSoundData("back_sound"))
+        {
+            m_audioSource.Stop();
+        }
+    }
+    private void OnMouseDown()
+    {
+        Debug.Log("Down!!");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //this is current panel position. first is 0.
+        float x = panel_transform.localPosition.x;
+        // item to item width is 1500.
+        // x / 750 = 0.xx,  1.xxx, etc...
+        x = Mathf.Abs(x);
+        x = x + Screen.width*0.5f;
+        //x = x - 3000;
+        //Debug.Log(x);
+        int current_stage_number = (int) (x/Screen.width);
+
+        float xMagnatitude = current_stage_number * Screen.width;
+       // xMagnatitude = xMagnatitude;
+        //Debug.Log(scrollRect.velocity);
+        if (Mathf.Abs(scrollRect.velocity.x) < 600)
+        {
+            scrollRect.velocity = new Vector2(0, 0);
+            panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(-Screen.width * current_stage_number, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
+            stageNameText.enabled = true;
+            stageClearPercentText.enabled = true;
+            leftArrow.enabled = true;
+            rightArrow.enabled = true;
+        }
+        else
+        {
+            //화면이 스크롤중일때
+            stageNameText.enabled = false;
+            stageClearPercentText.enabled = false;
+            leftArrow.enabled = false;
+            rightArrow.enabled = false;
+            //Debug.Log(scrollRect.velocity);
+        }
+
+
+
+
+        if (last_stage_number.Equals(current_stage_number))
+        {
+            //not thing;
+        }
+        else
+        {
+            //if, viewing stage is change, save last stage number.
+            last_stage_number = current_stage_number;
+            // change sound of current stage sound.
+            m_audioSource.Stop();
+
+            // new audio play!
+            try
+            {
+                if (DataLoadAndSave.LoadSoundData("back_sound"))
+                {
+                    m_audioSource.clip = stage_clip[current_stage_number];
+                    m_audioSource.Play();
+                    m_audioSource.loop = true;
+                }
+                // get stage name and percent
+                string stageName = DataLoadAndSave.LoadStageName(current_stage_number + 1);
+                int clearPercent = DataLoadAndSave.LoadStageClearPercent(current_stage_number + 1);
+                stageNameText.text = stageName;
+                stageClearPercentText.text = clearPercent + " % 클리어";
+            }
+            catch(IndexOutOfRangeException e)
+            {
+                Debug.Log("index out");
+            }
+
+        }
+    }
+}
