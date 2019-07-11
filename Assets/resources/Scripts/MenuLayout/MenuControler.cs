@@ -17,6 +17,7 @@ public class MenuControler : MonoBehaviour
     MyScrollRect scrollRect;
     Image leftArrow, rightArrow;
     Text stageNameText, stageClearPercentText;
+    public bool isTouching;
 
     // Start is called before the first frame update
     void Start()
@@ -63,10 +64,8 @@ public class MenuControler : MonoBehaviour
             m_audioSource.Stop();
         }
     }
-    private void OnMouseDown()
-    {
-        Debug.Log("Down!!");
-    }
+
+
 
     // Update is called once per frame
     void Update()
@@ -82,61 +81,75 @@ public class MenuControler : MonoBehaviour
         int current_stage_number = (int) (x/Screen.width);
 
         float xMagnatitude = current_stage_number * Screen.width;
-       // xMagnatitude = xMagnatitude;
+        // xMagnatitude = xMagnatitude;
         //Debug.Log(scrollRect.velocity);
-        if (Mathf.Abs(scrollRect.velocity.x) < 600)
+        if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
         {
-            scrollRect.velocity = new Vector2(0, 0);
-            panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(-Screen.width * current_stage_number, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
-            stageNameText.enabled = true;
-            stageClearPercentText.enabled = true;
-            leftArrow.enabled = true;
-            rightArrow.enabled = true;
+            isTouching = true;
+            Debug.Log("touched");
         }
         else
         {
-            //화면이 스크롤중일때
-            stageNameText.enabled = false;
-            stageClearPercentText.enabled = false;
-            leftArrow.enabled = false;
-            rightArrow.enabled = false;
-            //Debug.Log(scrollRect.velocity);
+            isTouching = false;
+            Debug.Log("not touched");
         }
 
 
 
 
-        if (last_stage_number.Equals(current_stage_number))
+        if (!isTouching)
         {
-            //not thing;
-        }
-        else
-        {
-            //if, viewing stage is change, save last stage number.
-            last_stage_number = current_stage_number;
-            // change sound of current stage sound.
-            m_audioSource.Stop();
 
-            // new audio play!
-            try
+            if (Mathf.Abs(scrollRect.velocity.x) < 600)
             {
-                if (DataLoadAndSave.LoadSoundData("back_sound"))
+                scrollRect.velocity = new Vector2(0, 0);
+                panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(-Screen.width * current_stage_number, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
+                stageNameText.enabled = true;
+                stageClearPercentText.enabled = true;
+                leftArrow.enabled = true;
+                rightArrow.enabled = true;
+            }
+            else
+            {
+                //화면이 스크롤중일때
+                stageNameText.enabled = false;
+                stageClearPercentText.enabled = false;
+                leftArrow.enabled = false;
+                rightArrow.enabled = false;
+                //Debug.Log(scrollRect.velocity);
+            }
+            if (last_stage_number.Equals(current_stage_number))
+            {
+                //not thing;
+            }
+            else
+            {
+                //if, viewing stage is change, save last stage number.
+                last_stage_number = current_stage_number;
+                // change sound of current stage sound.
+                m_audioSource.Stop();
+
+                // new audio play!
+                try
                 {
-                    m_audioSource.clip = stage_clip[current_stage_number];
-                    m_audioSource.Play();
-                    m_audioSource.loop = true;
+                    if (DataLoadAndSave.LoadSoundData("back_sound"))
+                    {
+                        m_audioSource.clip = stage_clip[current_stage_number];
+                        m_audioSource.Play();
+                        m_audioSource.loop = true;
+                    }
+                    // get stage name and percent
+                    string stageName = DataLoadAndSave.LoadStageName(current_stage_number + 1);
+                    int clearPercent = DataLoadAndSave.LoadStageClearPercent(current_stage_number + 1);
+                    stageNameText.text = stageName;
+                    stageClearPercentText.text = clearPercent + " % 클리어";
                 }
-                // get stage name and percent
-                string stageName = DataLoadAndSave.LoadStageName(current_stage_number + 1);
-                int clearPercent = DataLoadAndSave.LoadStageClearPercent(current_stage_number + 1);
-                stageNameText.text = stageName;
-                stageClearPercentText.text = clearPercent + " % 클리어";
-            }
-            catch(IndexOutOfRangeException e)
-            {
-                Debug.Log("index out");
-            }
+                catch (IndexOutOfRangeException e)
+                {
+                    Debug.Log("index out");
+                }
 
+            }
         }
     }
 }

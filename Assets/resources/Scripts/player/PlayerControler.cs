@@ -29,6 +29,7 @@ public class PlayerControler : MonoBehaviour
 
     GameObject clear_percent;
     GameObject combo_obj;
+    GameObject ControlBackground;
 
     RectTransform display_transform;
 
@@ -64,11 +65,12 @@ public class PlayerControler : MonoBehaviour
         ScreenWidth = Screen.width;
         ScreenLeft = Screen.width * 0.5f;
         ScreenHeight = Screen.height;
-        ScreenHeightLine = ScreenHeight * 0.25f;
+        ScreenHeightLine = ScreenHeight * 0.2f;
         control = (PlayerActionControler)gameObject.GetComponent(typeof(PlayerActionControler));
         ccm = (ClearCheckManager)GameObject.Find("ClearChecker").GetComponent(typeof(ClearCheckManager));
         endPositionZ = ccm.clearZ;
         endPositionZ = 1f / endPositionZ;
+
 
         clear_percent = m_canvas.transform.Find("ClearPercent").gameObject;
         combo_obj = m_canvas.transform.Find("Combo").gameObject;
@@ -77,6 +79,9 @@ public class PlayerControler : MonoBehaviour
 
         clear_percent.GetComponent<RectTransform>().localPosition = new Vector3(Screen.width * 0.4f, Screen.height * 0.47f, 0);
         combo_obj.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height * 0.25f, 0);
+        ControlBackground = GameObject.Find("ControlBackground");
+        ControlBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width,Screen.height*0.4f);
+        ControlBackground.GetComponent<RectTransform>().localPosition = new Vector3(0f, -Screen.height * 0.5f + Screen.height * 0.2f, 0f);
 
         comboText.fontSize = (int)Mathf.Round(Screen.width * 0.13f);
         percent_text.fontSize = (int)Mathf.Round(Screen.width * 0.1f);

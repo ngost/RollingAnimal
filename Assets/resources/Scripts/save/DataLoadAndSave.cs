@@ -4,6 +4,15 @@ using UnityEngine;
 
 public static class DataLoadAndSave
 {
+    public static void SaveTutorialState()
+    {
+        PlayerPrefs.SetInt("tutorial", 1);
+    }
+    public static int LoadTutorialState()
+    {
+        return PlayerPrefs.GetInt("tutorial",0);
+    }
+
     public static void SaveGraphicQuality(int index)
     {
         PlayerPrefs.SetInt("quality", index);

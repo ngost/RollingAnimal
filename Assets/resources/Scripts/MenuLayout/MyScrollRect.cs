@@ -143,6 +143,14 @@ namespace UnityEngine.UI
                 return m_ViewRect;
             }
         }
+        private void OnMouseDown()
+        {
+            Debug.Log("Down!!");
+        }
+        private void OnMouseUp()
+        {
+            Debug.Log("Up!!");
+        }
 
         private Bounds m_ContentBounds;
         private Bounds m_ViewBounds;

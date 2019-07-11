@@ -12,10 +12,4 @@ public class UIFitter : MonoBehaviour
         //width, height
         rectTransform.sizeDelta = new Vector2(Screen.width, Screen.height);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

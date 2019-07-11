@@ -178,7 +178,16 @@ public class GetRewardValue : MonoBehaviour
         ((VisibleTimer)GameObject.Find("ValueCombo").GetComponent(typeof(VisibleTimer))).times = 0f;
         ((VisibleTimer)GameObject.Find("ValuePercent").GetComponent(typeof(VisibleTimer))).times = 0f;
 
-        stageFailMessage.GetComponent<VisibleTimer>().times = 0f;
+        try
+        {
+            if (stageFailMessage != null)
+                stageFailMessage.GetComponent<VisibleTimer>().times = 0f;
+        }
+        catch (MissingReferenceException e)
+        {
+
+        }
+
         try
         {
             GameObject message = GameObject.Find("NewRecordMessage");

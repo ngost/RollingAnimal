@@ -156,10 +156,10 @@ public class PlayerActionControler : MonoBehaviour
         }
 
     }
-    public void StopControl()
-    {
-        controler.stopflag = true;
-    }
+    //public void StopControl()
+    //{
+    //    controler.stopflag = true;
+    //}
 
     public void AllStop()
     {
@@ -252,6 +252,7 @@ public class PlayerActionControler : MonoBehaviour
 //            m_rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
            if(m_rb != null)
             {
+//                Debug.Log("?");
                 m_rb.useGravity = true;
                 controler.stopflag = true;
             }
@@ -292,29 +293,32 @@ public class PlayerActionControler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision enter");
+        if (collision.gameObject.name.Equals("CheckPoint"))
+        {
+            return;
+        }
         BombCoolTime = 0f;
 //        Debug.Log(collision.gameObject.name);
         Dead();
     }
 
 
-    private void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("collision stay");
-        //충돌이 다른 오브젝트에서 일어났을 때, 하나만 처리 되게끔 처리.
-        if (jumpCoolTime > 0)
-            return;
-        if (this.hasCollider == true) { return; }
-        this.hasCollider = true;
+//    private void OnCollisionStay(Collision collision)
+//    {
+////        Debug.Log("collision stay");
+    //    //충돌이 다른 오브젝트에서 일어났을 때, 하나만 처리 되게끔 처리.
+    //    if (jumpCoolTime > 0)
+    //        return;
+    //    if (this.hasCollider == true) { return; }
+    //    this.hasCollider = true;
 
-        ContactPoint[] contactPoints = collision.contacts;
-        GameObject cube = collision.gameObject;
+    //    ContactPoint[] contactPoints = collision.contacts;
+    //    GameObject cube = collision.gameObject;
 
-        //cube_script = (CubeInitor)cube.GetComponent(typeof(CubeInitor));
+    //    //cube_script = (CubeInitor)cube.GetComponent(typeof(CubeInitor));
 
 
-    }
+    //}
 
 
     void OnEnable()

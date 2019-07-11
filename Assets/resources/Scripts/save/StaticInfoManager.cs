@@ -13,7 +13,7 @@ public static class StaticInfoManager
     public static int life = 1;
     public static bool background_sound_enable;
     public static bool effect_sound_enable;
-    public static int last_checkpoint;
+    public static Vector3 last_checkpoint;
     public static int experiment_request_stage;
 
     public static void ValueInit()
@@ -23,7 +23,7 @@ public static class StaticInfoManager
         maxCombo = 0;
         clearPercent = 0f;
         life = 1;
-        last_checkpoint = 0;
+        last_checkpoint = new Vector3(0f,0f,0f);
         current_player_position = 0f;
     }
 }

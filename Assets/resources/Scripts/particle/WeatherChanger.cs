@@ -44,12 +44,17 @@ public class WeatherChanger : MonoBehaviour
                 {
                     if (onetime)
                     {
+                        GameObject flowDance = GameObject.Find("FlowerDance");
+                        if(flowDance != null)
+                        {
+                            Destroy(flowDance);
+                        }
                         particle.Play();
                         audio.enabled = true;
                         onetime = false;
                         StartCoroutine("Done");
                     }
-                    if (light.intensity > 0.5f)
+                    if (light.intensity > 0f)
                     {
                         light.intensity = light.intensity - 0.01f;
                     }
@@ -63,7 +68,7 @@ public class WeatherChanger : MonoBehaviour
                         onetime = false;
                         StartCoroutine("Done");
                     }
-                    if (light.intensity < 1f)
+                    if (light.intensity < 0.7f)
                     {
                         light.intensity = light.intensity + 0.01f;
                     }

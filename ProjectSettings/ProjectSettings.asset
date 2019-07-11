@@ -79,6 +79,7 @@ PlayerSettings:
   usePlayerLog: 1
   bakeCollisionMeshes: 1
   forceSingleInstance: 0
+  useFlipModelSwapchain: 1
   resizableWindow: 0
   useMacAppStoreValidation: 0
   macAppStoreCategory: public.app-category.games
@@ -118,7 +119,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.1
+  bundleVersion: 2.4
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -161,7 +162,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.easyjin.rollinganimal
   buildNumber: {}
-  AndroidBundleVersionCode: 400021
+  AndroidBundleVersionCode: 400024
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -254,8 +255,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 7
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: /Users/ijin-yeong/Desktop/Jump Ground/JumpGroundKeystore.keystore
-  AndroidKeyaliasName: jumpground
+  AndroidKeystoreName: '{dedicated}: Documents/debug.keystore'
+  AndroidKeyaliasName: animal_debug
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -850,7 +851,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   facebookSdkVersion: 7.9.4
-  facebookAppId: 
+  facebookAppId: 357907951541077
   facebookCookies: 1
   facebookLogging: 1
   facebookStatus: 1

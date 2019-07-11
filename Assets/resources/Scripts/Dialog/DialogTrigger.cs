@@ -14,7 +14,7 @@ public class DialogTrigger : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         adMob = GameObject.Find("AdMobManager");
-        adMobManager = (AdMobManager)adMob.GetComponent(typeof(AdMobManager));
+//        adMobManager = (AdMobManager)adMob.GetComponent(typeof(AdMobManager));
     }
     public void TriggerDialog()
     {
@@ -30,6 +30,7 @@ public class DialogTrigger : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("GreenRoomScene"))
         {
             adMobManager.ShowRewardAd();
+            Debug.Log("rewarded show");
         }
         else
         {

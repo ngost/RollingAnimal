@@ -29,8 +29,9 @@ public class ClearCheckManager : MonoBehaviour
         if(player.transform.position.z >= clearZ)
         {
             control.isClear = true;
-            cameraControl.actor = null;
-//            control.StopControl();
+            //            cameraControl.actor = null;
+            cameraControl.stop = true;
+            //control.StopControl();
 //            cameraControl.CameraMoveToY(15f);
             if (onetime)
             {

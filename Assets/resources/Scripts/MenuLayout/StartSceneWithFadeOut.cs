@@ -42,7 +42,15 @@ public class StartSceneWithFadeOut : MonoBehaviour
         Debug.Log("clicked");
         source.PlayOneShot(clip,1.0f);
         //StaticInfoManager.current_stage = 0;
-        SimpleSceneFader.ChangeSceneWithFade(sceneName);
+        if (DataLoadAndSave.LoadTutorialState().Equals(0))
+        {
+            SimpleSceneFader.ChangeSceneWithFade("Tutorial");
+        }
+        else
+        {
+            SimpleSceneFader.ChangeSceneWithFade(sceneName);
+        }
+
     }
 
     void DestroySingletonSound()

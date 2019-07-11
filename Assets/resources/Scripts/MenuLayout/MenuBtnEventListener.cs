@@ -68,7 +68,7 @@ public class MenuBtnEventListener : MonoBehaviour
         {
             if (name.Equals("-1"))
             {
-                SSTools.ShowMessage("열심히 작업중입니다. ㅠㅠ", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("열심히 작업중입니다..!", SSTools.Position.bottom, SSTools.Time.twoSecond);
                 return;
             }
             int lastStage = DataLoadAndSave.LoadTopClearStage();
@@ -86,8 +86,6 @@ public class MenuBtnEventListener : MonoBehaviour
                 }
                 return;
             }
-
-
         }
         catch(FormatException e)
         {

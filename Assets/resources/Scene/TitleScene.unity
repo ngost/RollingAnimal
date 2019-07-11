@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.446577, g: 0.49641228, b: 0.57481825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -96,7 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
-  m_LightingDataAsset: {fileID: 112000002, guid: bf34bc55b2a902f46ae84c37bffb1537,
+  m_LightingDataAsset: {fileID: 112000000, guid: d102a324442b241c5af8f8c861f67393,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1419,11 +1419,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -1439,6 +1434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -2685,11 +2685,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -2699,6 +2694,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -5221,11 +5221,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -5241,6 +5236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -10057,6 +10057,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 803323336}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1126311865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126311867}
+  - component: {fileID: 1126311866}
+  m_Layer: 0
+  m_Name: FacebookSetup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1126311866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126311865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac9a8c69effc4026b3267556f5c92f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1126311867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126311865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 548.379, y: 1352.0248, z: 67.07843}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1129675476
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10129,11 +10172,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -10149,6 +10187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -11038,11 +11081,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -11058,6 +11096,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -16368,11 +16411,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -16388,6 +16426,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -16942,11 +16985,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -16962,6 +17000,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
@@ -17155,11 +17198,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3882565514386521289, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}
       propertyPath: moving_direction
@@ -17169,6 +17207,11 @@ PrefabInstance:
         type: 3}
       propertyPath: monster_speed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882565514386521287, guid: f33e32ce92f174f0eb82dcced550dac5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3882565515276859204, guid: f33e32ce92f174f0eb82dcced550dac5,
         type: 3}

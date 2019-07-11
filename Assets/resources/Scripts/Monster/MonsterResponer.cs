@@ -36,7 +36,7 @@ public class MonsterResponer : MonoBehaviour
     {
         if (stoped)
         {
-            Debug.Log("원위치");
+//            Debug.Log("원위치");
             ParticleSystem particle = gameObject.GetComponentInChildren<ParticleSystem>();
             if (particle != null)
                 particle.Play();
@@ -44,7 +44,7 @@ public class MonsterResponer : MonoBehaviour
         }
         else
         {
-            Debug.Log("생산");
+            //Debug.Log("생산");
             monster = Instantiate(respon_object, transform);
 
             ParticleSystem particle = gameObject.GetComponentInChildren<ParticleSystem>();
