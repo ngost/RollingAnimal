@@ -14,7 +14,7 @@ public class DialogTrigger : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         adMob = GameObject.Find("AdMobManager");
-//        adMobManager = (AdMobManager)adMob.GetComponent(typeof(AdMobManager));
+        adMobManager = (AdMobManager)adMob.GetComponent(typeof(AdMobManager));
     }
     public void TriggerDialog()
     {

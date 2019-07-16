@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using Facebook.Unity;
 public class ClearCheckManager : MonoBehaviour
 {
     public GameObject player;
@@ -37,6 +38,18 @@ public class ClearCheckManager : MonoBehaviour
             {
                 onetime = false;
                 StartCoroutine("ChangeScene");
+
+                var achParams = new Dictionary<string, object>();
+                achParams[AppEventParameterName.ContentID] = "Some player succeeded in clearing a specific stage("+ SceneManager.GetActiveScene().name+").";
+                achParams[AppEventParameterName.Description] = SceneManager.GetActiveScene().name + " was cleared.";
+                achParams[AppEventParameterName.Level] = SceneManager.GetActiveScene().name;
+                achParams[AppEventParameterName.MaxRatingValue] = player_controler.maxCombo + "Max Combo";
+                achParams[AppEventParameterName.Success] = "1";
+
+                FB.LogAppEvent(
+                    AppEventName.AchievedLevel,
+                    parameters: achParams
+                );
             }
         }
     }
@@ -50,7 +63,7 @@ public class ClearCheckManager : MonoBehaviour
         StaticInfoManager.maxCombo = player_controler.maxCombo;
         StaticInfoManager.clearPercent = 100f;
         StaticInfoManager.isCleared = true;
-        DataLoadAndSave.SaveTopClearStage(StaticInfoManager.current_stage);
+        DataLoadAndSave.SaveTopClearStage(StaticInfoManager.current_stage,StaticInfoManager.level);
         //check last clearPercent of stage...
 
         yield return new WaitForSeconds(3f);

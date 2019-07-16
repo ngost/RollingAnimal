@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Facebook.Unity;
+using UnityEngine.SceneManagement;
 
 public class StartManager : MonoBehaviour
 {
@@ -20,6 +22,14 @@ public class StartManager : MonoBehaviour
             player.transform.position = StaticInfoManager.last_checkpoint;
         }
 
+        var tryParams = new Dictionary<string, object>();
+        tryParams[AppEventParameterName.ContentID] = SceneManager.GetActiveScene().name+ " was challenged.";
+        tryParams[AppEventParameterName.Description] = "Specific Stage("+SceneManager.GetActiveScene().name+ ") was Challenged by some player.";
+        tryParams[AppEventParameterName.Success] = "1";
 
+        FB.LogAppEvent(
+                    AppEventName.ViewedContent,
+                    parameters: tryParams
+                );
     }
 }

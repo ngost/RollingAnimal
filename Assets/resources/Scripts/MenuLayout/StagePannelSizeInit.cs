@@ -7,12 +7,12 @@ public class StagePannelSizeInit : MonoBehaviour
 {
     RectTransform rectTransform;
     float marginY,marginX;
-
+    int lastStage;
     void Start()
     {
         //size init
 
-        int lastStage = DataLoadAndSave.LoadTopClearStage();
+        lastStage = DataLoadAndSave.LoadTopClearStage(StaticInfoManager.level);
         RectTransform rectTransform = gameObject.GetComponent<RectTransform>();
         //get device display size, get margin , i did axis of width
         marginY = Screen.height * 0.25f;
@@ -41,12 +41,26 @@ public class StagePannelSizeInit : MonoBehaviour
         //        rectTransform.position = new Vector3(-2500, 0f, 0f);
 
         //클리어하지 못한 스테이지 이후의 스테이지에 백그라운드 불투명도 적용
-        if (int.Parse(gameObject.name) > lastStage) {
+        SetBackgroundAlpha();
+    }
+
+    public void SetBackgroundAlpha()
+    {
+        Debug.Log(StaticInfoManager.level);
+        lastStage = DataLoadAndSave.LoadTopClearStage(StaticInfoManager.level);
+        if (int.Parse(gameObject.name) > lastStage)
+        {
             Image image = gameObject.GetComponent<Image>();
             Color tempColor = image.color;
             tempColor.a = 0.4f;
             image.color = tempColor;
         }
-    
+        else
+        {
+            Image image = gameObject.GetComponent<Image>();
+            Color tempColor = image.color;
+            tempColor.a = 1f;
+            image.color = tempColor;
+        }
     }
 }

@@ -24,17 +24,50 @@ public static class DataLoadAndSave
         return saved_index;
     }
 
-    public static void SaveTopClearStage(int stageNum)
+    public static void SaveTopClearStage(int stageNum,int level = 0)
     {
-        if (LoadTopClearStage() < stageNum)
+        switch (level)
         {
-            PlayerPrefs.SetInt("topStage", stageNum);
+            case 0:
+                if (LoadTopClearStage(0) < stageNum)
+                {
+                    PlayerPrefs.SetInt("topStage_easy", stageNum);
+                }
+                break;
+            case 1:
+                if (LoadTopClearStage(1) < stageNum)
+                {
+                    PlayerPrefs.SetInt("topStage_normal", stageNum);
+                }
+                break;
+            case 2:
+                if (LoadTopClearStage(2) < stageNum)
+                {
+                    PlayerPrefs.SetInt("topStage_difficult", stageNum);
+                }
+                break;
+            default:
+                break;
         }
     }
 
-    public static int LoadTopClearStage()
+    public static int LoadTopClearStage(int level = 0)
     {
-        return PlayerPrefs.GetInt("topStage", 0);
+        int returnInt = 0;
+        switch (level)
+        {
+            case 0:
+                returnInt = PlayerPrefs.GetInt("topStage_easy", 0);
+                break;
+            case 1:
+                returnInt = PlayerPrefs.GetInt("topStage_normal", 0);
+                break;
+            default:
+                returnInt = PlayerPrefs.GetInt("topStage_difficult", 0);
+                break;
+        }
+        return returnInt;
+
     }
     public static void SaveSoundData(string soundType,bool value)
     {
@@ -61,15 +94,17 @@ public static class DataLoadAndSave
     }
 
     //private int coins;
-    public static void SaveStageClearPercent(int stageNum,int percent)
+    public static void SaveStageClearPercent(int stageNum,int percent, int level = 0)
     {
-        PlayerPrefs.SetInt("stage" + stageNum + "CP",percent);
+        PlayerPrefs.SetInt("stage" + stageNum + "CP"+level,percent);
+    }
+    public static int LoadStageClearPercent(int stageNum,int level = 0)
+    {
+        int clearPercent = PlayerPrefs.GetInt("stage" + stageNum + "CP"+level, 0);
+        return clearPercent;
     }
 
-    public static void AddNewStageName(int stageNum, string name)
-    {
-        PlayerPrefs.SetString("stage" + stageNum + "Name",name);
-    }
+   
 
     private static void SaveCoins(int coins)
     {
@@ -112,15 +147,17 @@ public static class DataLoadAndSave
         //List<string> _string_list = _json.
     }
 
+    //very important
+    public static void AddNewStageName(int stageNum, string name)
+    {
+        PlayerPrefs.SetString("stage" + stageNum + "Name", name);
+    }
+
     public static string LoadStageName(int stageNum)
     {
         string stageName = PlayerPrefs.GetString("stage" + stageNum + "Name", "준비중");
         return stageName;
     }
 
-    public static int LoadStageClearPercent(int stageNum)
-    {
-        int clearPercent = PlayerPrefs.GetInt("stage" + stageNum + "CP", 0);
-        return clearPercent;
-    }
+
 }

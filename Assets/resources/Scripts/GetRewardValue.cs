@@ -25,11 +25,11 @@ public class GetRewardValue : MonoBehaviour
     {
         stageFailMessage =  GameObject.Find("StageFailMessage");
 
-        int lastPercent = DataLoadAndSave.LoadStageClearPercent(StaticInfoManager.current_stage);
+        int lastPercent = DataLoadAndSave.LoadStageClearPercent(StaticInfoManager.current_stage,StaticInfoManager.level);
         if (lastPercent < StaticInfoManager.clearPercent)
         {
             StaticInfoManager.isNewRecord = true;
-            DataLoadAndSave.SaveStageClearPercent(StaticInfoManager.current_stage,(int)StaticInfoManager.clearPercent);
+            DataLoadAndSave.SaveStageClearPercent(StaticInfoManager.current_stage,(int)StaticInfoManager.clearPercent,StaticInfoManager.level);
         }
 
 

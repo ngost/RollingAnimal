@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/resources/Scene/MapCreateScene.unity
     guid: 1347afa0d23984f129082ea2bb18b243
   - enabled: 1
-    path: Assets/resources/Scene/Stage_1.unity
+    path: Assets/resources/Scene/Stage_1_1.unity
     guid: c96cf144ea374446e9880c4b9a872204
   - enabled: 1
     path: Assets/resources/Scene/RewardScene.unity
@@ -30,42 +30,60 @@ EditorBuildSettings:
     path: Assets/resources/Scene/SettingScene.unity
     guid: 0fda4cfaa7cff4ba1a58317986bcfbc4
   - enabled: 1
-    path: Assets/resources/Scene/Stage_2.unity
+    path: Assets/resources/Scene/Stage_2_1.unity
     guid: cfd89d7a29e2c42aca224ec4ebec75e9
   - enabled: 1
-    path: Assets/resources/Scene/Stage_3.unity
+    path: Assets/resources/Scene/Stage_3_1.unity
     guid: 6b543e4ff1e6e4eff96cb57b4dba3994
   - enabled: 1
     path: Assets/resources/Scene/Tutorial.unity
     guid: 9a87470b318284fdfab633e5fa649a17
   - enabled: 1
+    path: Assets/resources/Scene/Stage_3_2.unity
+    guid: c0d9e25b2281f4875a77f7a4ee8081c7
+  - enabled: 1
+    path: Assets/resources/Scene/Stage_3_3.unity
+    guid: 15d5c690a21314e3597fd0e5bbcfb2a8
+  - enabled: 1
+    path: Assets/resources/Scene/Stage_2_3.unity
+    guid: 8e902cb8fedf448c08b8076bf877569a
+  - enabled: 1
+    path: Assets/resources/Scene/Stage_2_2.unity
+    guid: a0a99b86da12b4e62b4d64a8adf035ea
+  - enabled: 1
+    path: Assets/resources/Scene/Stage_1_2.unity
+    guid: f593dbde137d343acb48881a16dff906
+  - enabled: 1
+    path: Assets/resources/Scene/Stage_1_3.unity
+    guid: aad5e9e526f4c4377898a22a15d3b771
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/AccessTokenMenu.unity
     guid: 67cb5b2387b8e4ec9b2fa69ad9510e9b
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/AppEvents.unity
     guid: 68ab940fa15e34433bff18301686b080
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/AppInvites.unity
     guid: 1beb7e4efae1b4e8d87bb52689540adf
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/AppLinks.unity
     guid: 4ac12dfde6570493291366d0ab3eb20d
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/AppRequests.unity
     guid: c2250c9c5cf00425384401321f8dffb4
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/DialogShare.unity
     guid: 190c345841ecc464e9a122f04369757e
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/GraphRequest.unity
     guid: 444ae7ddf432b457a97bfe42021075e3
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/LogView.unity
     guid: c07ff0bf6bea74c2eb681ac0cae44265
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/MainMenu.unity
     guid: 7c38a8c9adc9d5c4b869612e4033ead8
-  - enabled: 1
+  - enabled: 0
     path: Assets/FacebookSDK/Examples/Pay.unity
     guid: 3ee189cdb21ea4bdb9d7022a0780c44c
   m_configObjects: {}

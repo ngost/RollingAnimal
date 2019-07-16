@@ -15,7 +15,7 @@ public static class StaticInfoManager
     public static bool effect_sound_enable;
     public static Vector3 last_checkpoint;
     public static int experiment_request_stage;
-
+    public static int level = 0;
     public static void ValueInit()
     {
         isNewRecord = false;

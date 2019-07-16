@@ -86,6 +86,7 @@ public class AdMobManager : MonoBehaviour
         interstitialAd.LoadAd(request);
  
         interstitialAd.OnAdClosed += HandleOnInterstitialAdClosed;
+        interstitialAd.OnAdFailedToLoad += HandleOnAdFailedToLoad;
     }
 
     //보상형 광고
@@ -108,7 +109,9 @@ public class AdMobManager : MonoBehaviour
 
         rewardBasedAd.OnAdRewarded += HandleRewardBasedVideoRewarded;
         rewardBasedAd.OnAdClosed += HandleRewardBasedVideoClosed;
-  
+        rewardBasedAd.OnAdFailedToLoad += HandleRewardBasedVideoFailedToLoad;
+
+
     }
 
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
@@ -123,11 +126,19 @@ public class AdMobManager : MonoBehaviour
         //RequestRewardBasedVideo();
         rewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
         rewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
-        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage);
+        rewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
+        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage + "_"+(StaticInfoManager.level+1));
 
     }
 
-
+    public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    {
+        SSTools.ShowMessage("보여 드릴 광고가 없습니다.", SSTools.Position.bottom, SSTools.Time.oneSecond);
+        rewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
+        rewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
+        rewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
+        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage + "_" + (StaticInfoManager.level + 1));
+    }
 
     //ad exit callback
     public void HandleOnInterstitialAdClosed(object sender, EventArgs args)
@@ -135,11 +146,22 @@ public class AdMobManager : MonoBehaviour
         print("HandleOnInterstitialAdClosed event received.");
 
         interstitialAd.OnAdClosed -= HandleOnInterstitialAdClosed;
+        interstitialAd.OnAdFailedToLoad -= HandleOnAdFailedToLoad;
         StaticInfoManager.life = 1;
         interstitialAd.Destroy();
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
 
+    }
+    public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    {
+        SSTools.ShowMessage("보여 드릴 광고가 없습니다.", SSTools.Position.bottom, SSTools.Time.oneSecond);
+        interstitialAd.OnAdClosed -= HandleOnInterstitialAdClosed;
+        interstitialAd.OnAdFailedToLoad -= HandleOnAdFailedToLoad;
+        StaticInfoManager.life = 1;
+        interstitialAd.Destroy();
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
     }
 
     public void ShowRewardAd()

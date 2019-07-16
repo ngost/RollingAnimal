@@ -18,10 +18,35 @@ public class MenuControler : MonoBehaviour
     Image leftArrow, rightArrow;
     Text stageNameText, stageClearPercentText;
     public bool isTouching;
+    GameObject level_btn;
 
     // Start is called before the first frame update
     void Start()
     {
+        //level btn load and init
+
+        level_btn = GameObject.Find("LevelBtn");
+        if (StaticInfoManager.level == 0)
+        {
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_easy");
+        }
+        else if (StaticInfoManager.level == 1)
+        {
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_normal");
+        }
+        else if (StaticInfoManager.level == 2)
+        {
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_hard");
+        }
+
+        //stage pannel size init
+
+        StagePannelSizeInit[] sizeInitor = GameObject.Find("Content").GetComponentsInChildren<StagePannelSizeInit>();
+        foreach (StagePannelSizeInit initor in sizeInitor)
+        {
+            initor.SetBackgroundAlpha();
+        }
+
         if (!StaticInfoManager.isStageNameInit)
         {
             DataLoadAndSave.AddNewStageName(1,"구름 많은 날");
@@ -55,7 +80,7 @@ public class MenuControler : MonoBehaviour
 
         //init only stage 1
         string stageName = DataLoadAndSave.LoadStageName(1);
-        int clearPercent = DataLoadAndSave.LoadStageClearPercent(1);
+        int clearPercent = DataLoadAndSave.LoadStageClearPercent(1,StaticInfoManager.level);
         stageNameText.text = stageName;
         stageClearPercentText.text = clearPercent + " % 클리어";
 
@@ -86,12 +111,10 @@ public class MenuControler : MonoBehaviour
         if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
         {
             isTouching = true;
-            Debug.Log("touched");
         }
         else
         {
             isTouching = false;
-            Debug.Log("not touched");
         }
 
 
@@ -139,17 +162,22 @@ public class MenuControler : MonoBehaviour
                         m_audioSource.loop = true;
                     }
                     // get stage name and percent
-                    string stageName = DataLoadAndSave.LoadStageName(current_stage_number + 1);
-                    int clearPercent = DataLoadAndSave.LoadStageClearPercent(current_stage_number + 1);
-                    stageNameText.text = stageName;
-                    stageClearPercentText.text = clearPercent + " % 클리어";
+                    changeCurrentStageInfo();
                 }
                 catch (IndexOutOfRangeException e)
                 {
                     Debug.Log("index out");
                 }
-
             }
         }
     }
+
+    public void changeCurrentStageInfo()
+    {
+        string stageName = DataLoadAndSave.LoadStageName(last_stage_number + 1);
+        int clearPercent = DataLoadAndSave.LoadStageClearPercent(last_stage_number + 1, StaticInfoManager.level);
+        stageNameText.text = stageName;
+        stageClearPercentText.text = clearPercent + " % 클리어";
+    }
+
 }

@@ -16,13 +16,13 @@ PlayerSettings:
   productName: "\uB864\uB9C1 \uC560\uB2C8\uBA40"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.9647059, g: 0.9009057, b: 0.25882357, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
-  m_SplashScreenOverlayOpacity: 1
+  m_SplashScreenOverlayOpacity: 0.658
   m_SplashScreenAnimation: 1
-  m_SplashScreenLogoStyle: 1
-  m_SplashScreenDrawMode: 0
+  m_SplashScreenLogoStyle: 0
+  m_SplashScreenDrawMode: 1
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
   m_SplashScreenBackgroundLandscapeAspect: 1
@@ -39,7 +39,9 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
+  m_SplashScreenLogos:
+  - logo: {fileID: 10404, guid: 0000000000000000e000000000000000, type: 0}
+    duration: 2
   m_VirtualRealitySplashScreen: {fileID: 0}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
@@ -119,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.4
+  bundleVersion: 2.5
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -162,7 +164,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.easyjin.rollinganimal
   buildNumber: {}
-  AndroidBundleVersionCode: 400024
+  AndroidBundleVersionCode: 400025
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -255,8 +257,8 @@ PlayerSettings:
   AndroidTargetArchitectures: 7
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{dedicated}: Documents/debug.keystore'
-  AndroidKeyaliasName: animal_debug
+  AndroidKeystoreName: /Users/ijin-yeong/Desktop/Jump Ground/JumpGroundKeystore.keystore
+  AndroidKeyaliasName: jumpground
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
@@ -274,7 +276,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 8bdca95fa97af4deba6861e025d78730, type: 3}
+      m_Icon: {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -282,7 +284,7 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - m_Textures:
-      - {fileID: 2800000, guid: 8bdca95fa97af4deba6861e025d78730, type: 3}
+      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
       - {fileID: 0}
       m_Width: 432
       m_Height: 432
@@ -314,7 +316,7 @@ PlayerSettings:
       m_Kind: 2
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 8bdca95fa97af4deba6861e025d78730, type: 3}
+      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
@@ -350,7 +352,7 @@ PlayerSettings:
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 8bdca95fa97af4deba6861e025d78730, type: 3}
+      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
@@ -733,7 +735,8 @@ PlayerSettings:
   ps4attribEyeToEyeDistanceSettingVR: 0
   ps4IncludedModules: []
   monoEnv: 
-  splashScreenBackgroundSourceLandscape: {fileID: 0}
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: f2349978780e945e4b661341ddfe92e1,
+    type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: 
   webGLMemorySize: 256
