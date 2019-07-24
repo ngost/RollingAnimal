@@ -44,7 +44,6 @@ public class ClearCheckManager : MonoBehaviour
                 achParams[AppEventParameterName.Description] = SceneManager.GetActiveScene().name + " was cleared.";
                 achParams[AppEventParameterName.Level] = SceneManager.GetActiveScene().name;
                 achParams[AppEventParameterName.MaxRatingValue] = player_controler.maxCombo + "Max Combo";
-                achParams[AppEventParameterName.Success] = "1";
 
                 FB.LogAppEvent(
                     AppEventName.AchievedLevel,

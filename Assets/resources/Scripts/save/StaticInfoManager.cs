@@ -3,6 +3,7 @@ using UnityEngine;
 
 public static class StaticInfoManager
 {
+    public static Lang lang = null;
     public static float current_player_position = 0f;
     public static bool isStageNameInit = false;
     public static bool isNewRecord;
@@ -16,6 +17,8 @@ public static class StaticInfoManager
     public static Vector3 last_checkpoint;
     public static int experiment_request_stage;
     public static int level = 0;
+    public static int boxType = 0;
+
     public static void ValueInit()
     {
         isNewRecord = false;

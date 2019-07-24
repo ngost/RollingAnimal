@@ -482,8 +482,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAD11\uACE0 \uD55C\uBC88 \uC2DC\uCCAD\uD558\uACE0\n\uD50C\uB808\uC774
-    \uD574\uBCF4\uAE30"
+  m_Text: 'Watch Videos
+
+    play once.'
 --- !u!1 &7966435014074381737
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,4 +563,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC2DC\uCCAD \uD6C4 \uD50C\uB808\uC774"
+  m_Text: Watching

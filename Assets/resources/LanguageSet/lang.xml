@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+    <English>
+        <touch_text>Touch to Start</touch_text>
+        <stage1_name>A lot of clouds</stage1_name>
+        <stage2_name>sunset</stage2_name>
+        <stage3_name>Snowmined mine</stage3_name>
+        <stage_coming>Coming soon</stage_coming>
+        <clear>clear</clear>
+        <tutorial_sentence1>Nice to meet you. Have you ever tried a rolling animal?</tutorial_sentence1>
+        <tutorial_sentence2>Move along the footprint.</tutorial_sentence2>
+        <tutorial_sentence3>Cool! Keep moving.</tutorial_sentence3>
+        <tutorial_sentence4>There is an obstacle in front. Cross over carefully</tutorial_sentence4>
+        <tutorial_sentence5>You're almost there. cheer up!</tutorial_sentence5>
+        <tutorial_sentence6>Congratulations! You have completed the tutorial.</tutorial_sentence6>
+        <MaxCombo>Max Combo</MaxCombo>
+        <ClearPercent>Progress</ClearPercent>
+        <TotalReward>Reward</TotalReward>
+        <RewardMessage1>ㅠㅡㅠ</RewardMessage1>
+        <RewardMessage2>Please try again!</RewardMessage2>
+        <RewardMessage3>You went in over half</RewardMessage3>
+        <RewardMessage4>You're adapting~</RewardMessage4>
+        <RewardMessage5>It’s such a shame</RewardMessage5>
+        <StageClearMessage>Stage Clear!</StageClearMessage>
+        <NewRecordMessage>New Record!</NewRecordMessage>
+        <BackgroundMusic>Back Sound On/Off</BackgroundMusic>
+        <EffectMusic>Effect Sound On/Off</EffectMusic>
+        <GraphicText>Quality</GraphicText>
+        <GraphicLow>Low</GraphicLow>
+        <GraphicMedium>Medium</GraphicMedium>
+        <GraphicHigh>High</GraphicHigh>
+        <bronze_box_name>Bronze Box</bronze_box_name>
+        <silver_box_name>Silver Box</silver_box_name>
+        <gold_box_name>Gold Box</gold_box_name>
+    </English>
+        
+    <Korean>
+        <touch_text>터치하여 시작</touch_text>
+        <stage1_name>구름 많은 날</stage1_name>
+        <stage2_name>노을</stage2_name>
+        <stage3_name>눈 쌓인 광산</stage3_name>
+        <stage_coming>준비중</stage_coming>
+        <clear>클리어</clear>
+        <tutorial_sentence1>반갑습니다. 롤링 애니멀은 처음이시죠?</tutorial_sentence1>
+        <tutorial_sentence2>발자국을 따라 이동해보세요.</tutorial_sentence2>
+        <tutorial_sentence3>잘하고 있어요! 계속 이동해보세요.</tutorial_sentence3>
+        <tutorial_sentence4>앞에 장애물이 있습니다. 피해서 건너가세요.</tutorial_sentence4>
+        <tutorial_sentence5>거의 다 왔어요. 힘내세요!</tutorial_sentence5>
+        <tutorial_sentence6>축하합니다! 튜토리얼을 완료하셨습니다.</tutorial_sentence6>
+        <MaxCombo>최대 콤보 횟수</MaxCombo>
+        <ClearPercent>진행도</ClearPercent>
+        <TotalReward>보상</TotalReward>
+        <RewardMessage1>ㅋㅋ..</RewardMessage1>
+        <RewardMessage2>좀 더 분발해보세요!</RewardMessage2>
+        <RewardMessage3>절반쯤 가셨어요!</RewardMessage3>
+        <RewardMessage4>적응해 가시는군요~</RewardMessage4>
+        <RewardMessage5>아이고 아까워라!</RewardMessage5>
+        <StageClearMessage>스테이지 클리어!</StageClearMessage>
+        <NewRecordMessage>새로운 기록!</NewRecordMessage>
+        <BackgroundMusic>배경음 On/Off</BackgroundMusic>
+        <EffectMusic>효과음 On/Off</EffectMusic>
+        <GraphicText>그래픽 품질</GraphicText>
+        <GraphicLow>하</GraphicLow>
+        <GraphicMedium>중</GraphicMedium>
+        <GraphicHigh>상</GraphicHigh>
+        <bronze_box_name>브론즈 상자</bronze_box_name>
+        <silver_box_name>실버 상자</silver_box_name>
+        <gold_box_name>골드 상자</gold_box_name>
+        <Animal0>핫독</Animal0>
+        <Animal1>덕</Animal1>
+        <Animal2>꼬꼬</Animal2>
+        <Animal3>리틀 꼬꼬</Animal3>
+        <Animal4>양양</Animal4>
+        <Animal5>고트</Animal5>
+        <Animal6>토깽</Animal6>
+        <Animal7>냥냥</Animal7>
+        <Animal8>꽃돼지</Animal8>
+        <Animal9>카우</Animal9>
+        <Animal10>디어</Animal10>
+        <Animal11>느림북</Animal11>
+        <Animal12>이구</Animal12>
+        <Animal13>울프</Animal13>
+        <Animal14>폭스</Animal14>
+        <Animal15>파랑새</Animal15>
+        <Animal16>그리즐</Animal16>
+        <Animal17>날쌩마</Animal17>
+        <Animal18>얼룩 날쌩마</Animal18>
+        <Animal19>판다</Animal19>
+        <Animal20>블랙 버드</Animal20>
+        <Animal21>라이언</Animal21>
+        
+
+    </Korean>
+    
+    <Ukrainian>
+        <touch_text>Натисніть!</touch_text>
+        <stage1_name>Багато хмар</stage1_name>
+        <stage2_name>захід сонця</stage2_name>
+        <stage3_name>Шахти</stage3_name>
+        <stage_coming>не готовий</stage_coming>
+        <clear>Завершено</clear>
+        <tutorial_sentence1>Приємно познайомитись. Ви коли-небудь пробували Rolling Animal?</tutorial_sentence1>
+        <tutorial_sentence2>Слідуйте по стежці.</tutorial_sentence2>
+        <tutorial_sentence3>Хороша робота! Продовжуйте рухатися.</tutorial_sentence3>
+        <tutorial_sentence4>Попереду є перешкода. Переходите уважно.</tutorial_sentence4>
+        <tutorial_sentence5>ви майже там.</tutorial_sentence5>
+        <tutorial_sentence6>Вітаємо! Ви завершили навчання.</tutorial_sentence6>
+        <MaxCombo>Макс Комбо</MaxCombo>
+        <ClearPercent>прогресу</ClearPercent>
+        <TotalReward>Нагорода</TotalReward>
+        <RewardMessage1>ㅠㅡㅠ</RewardMessage1>
+        <RewardMessage2>Будь ласка спробуйте ще раз!</RewardMessage2>
+        <RewardMessage3>Більше половини пішло.</RewardMessage3>
+        <RewardMessage4>Ще трохи більше!</RewardMessage4>
+        <RewardMessage5>Мені шкода.</RewardMessage5>
+        <StageClearMessage>Етап завершено!</StageClearMessage>
+        <NewRecordMessage>новий запис!</NewRecordMessage>
+        <BackgroundMusic>Фоновий звук On/Off</BackgroundMusic>
+        <EffectMusic>ефекту звук On/Off</EffectMusic>
+        <GraphicText>Якість</GraphicText>
+        <GraphicLow>Низький</GraphicLow>
+        <GraphicMedium>Загальні</GraphicMedium>
+        <GraphicHigh>високий</GraphicHigh>
+        <bronze_box_name>бронза коробка</bronze_box_name>
+        <silver_box_name>Срібний коробка</silver_box_name>
+        <gold_box_name>золото коробка</gold_box_name>
+    </Ukrainian>
+    
+    <Russian>
+        <touch_text>Нажмите!</touch_text>
+        <stage1_name>много облаков</stage1_name>
+        <stage2_name>закат</stage2_name>
+        <stage3_name>шахты</stage3_name>
+        <stage_coming>не готов</stage_coming>
+        <clear>завершено</clear>
+        <tutorial_sentence1>Приятно познакомиться. Вы когда-нибудь пробовали Rolling Animal?</tutorial_sentence1>
+        <tutorial_sentence2>Следуйте по тропе.</tutorial_sentence2>
+        <tutorial_sentence3>Хорошая работа! Продолжайте двигаться.</tutorial_sentence3>
+        <tutorial_sentence4>Впереди есть препятствие. Переходите внимательно.</tutorial_sentence4>
+        <tutorial_sentence5>вы почти там.</tutorial_sentence5>
+        <tutorial_sentence6>Поздравляем! Вы завершили обучение.</tutorial_sentence6>
+        <MaxCombo>Макс Комбо</MaxCombo>
+        <ClearPercent>прогресс</ClearPercent>
+        <TotalReward>награда</TotalReward>
+        <RewardMessage1>ㅠㅡㅠ</RewardMessage1>
+        <RewardMessage2>Пожалуйста попробуйте еще раз!</RewardMessage2>
+        <RewardMessage3>Более половины ушло.</RewardMessage3>
+        <RewardMessage4>Еще немного больше!</RewardMessage4>
+        <RewardMessage5>Мне жаль.</RewardMessage5>
+        <StageClearMessage>Этап завершен!</StageClearMessage>
+        <NewRecordMessage>новая запись!</NewRecordMessage>
+        <BackgroundMusic>Фоновый звук On / Off</BackgroundMusic>
+        <EffectMusic>эффекта звук On / Off</EffectMusic>
+        <GraphicText>качество</GraphicText>
+        <GraphicLow>низкий</GraphicLow>
+        <GraphicMedium>генеральный</GraphicMedium>
+        <GraphicHigh>высокий</GraphicHigh>
+        <bronze_box_name>бронза коробка</bronze_box_name>
+        <silver_box_name>Серебряный коробка</silver_box_name>
+        <gold_box_name>золото коробка</gold_box_name>
+    </Russian>
+</languages>
+    

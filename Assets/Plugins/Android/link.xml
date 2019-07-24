@@ -1,0 +1,5 @@
+﻿<linker>
+    <assembly fullname="mscorlib">
+        <type fullname="AppsFlyer.*" preserve="all"/>
+    </assembly>
+</linker>

@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: easyjin
-  productName: "\uB864\uB9C1 \uC560\uB2C8\uBA40"
+  productName: Rolling Animal
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.9647059, g: 0.9009057, b: 0.25882357, a: 1}
@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.5
+  bundleVersion: 2.8
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -164,7 +164,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.easyjin.rollinganimal
   buildNumber: {}
-  AndroidBundleVersionCode: 400025
+  AndroidBundleVersionCode: 400028
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
 public class MenuBtnEventListener : MonoBehaviour
 {
     bool effect_sound_enable;
@@ -18,7 +19,8 @@ public class MenuBtnEventListener : MonoBehaviour
         effect_sound_enable = DataLoadAndSave.LoadSoundData("effect_sound");
         StartCoroutine("delay");
         level_btn = GameObject.Find("LevelBtn");
-        menu_controler =(MenuControler)GameObject.Find("AudioManager").GetComponent(typeof(MenuControler));
+        if(SceneManager.GetActiveScene().name.Equals("GreenRoomScene"))
+            menu_controler =(MenuControler)GameObject.Find("AudioManager").GetComponent(typeof(MenuControler));
     }
 
     // Start is called before the first frame update
@@ -60,7 +62,7 @@ public class MenuBtnEventListener : MonoBehaviour
     public void BtnOnclick(string name)
     {
 
-        AudioSource source = (AudioSource)GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        AudioSource source = gameObject.GetComponent<AudioSource>();
 
         if (!effect_sound_enable)
         {
@@ -118,12 +120,13 @@ public class MenuBtnEventListener : MonoBehaviour
         }
         if (name.Equals("shop"))
         {
-            SSTools.ShowMessage("돈 많이 모아두셨죠?", SSTools.Position.bottom, SSTools.Time.twoSecond);
+//            SSTools.ShowMessage("돈 많이 모아두셨죠?", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SceneManager.LoadScene("ShopScene");
             return;
         }
         if (name.Equals("inventory"))
         {
-            SSTools.ShowMessage("빠른 시일 내에 귀여운 캐릭터들을 만나보실 수 있습니다.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            SceneManager.LoadScene("InventoryScene");
             return;
         }
         if (name.Equals("level"))
@@ -158,6 +161,37 @@ public class MenuBtnEventListener : MonoBehaviour
 
             return;
         }
+
+        if (name.Equals("LeftArrow"))
+        {
+
+        }
+        if (name.Equals("RightArrow"))
+        {
+
+        }
+
+        if (name.Equals("backBtn"))
+        {
+            SceneManager.LoadScene("GreenRoomScene");
+        }
+
+        if (name.Equals("BronzeBox"))
+        {
+            StaticInfoManager.boxType = 0;
+            SceneManager.LoadScene("BoxScene");
+        }
+        if (name.Equals("SilverBox"))
+        {
+            StaticInfoManager.boxType = 1;
+            SceneManager.LoadScene("BoxScene");
+        }
+        if (name.Equals("GoldBox"))
+        {
+            StaticInfoManager.boxType = 2;
+            SceneManager.LoadScene("BoxScene");
+        }
+
         //Debug.Log(name+"clicked!");
     }
 

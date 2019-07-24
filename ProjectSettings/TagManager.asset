@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SceneFader
+  - FxTemporaire
+  - Bronze_Box
+  - Silver_Box
+  - Gold_Box
   layers:
   - Default
   - TransparentFX

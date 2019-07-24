@@ -10,6 +10,7 @@ public class GetRewardValue : MonoBehaviour
     Text MaxText, ClearText, TotalText;
     GameObject ValueRewardObj;
     GameObject stageFailMessage;
+    GameObject stageClearMessage, newRecordMessage;
     VisibleTimer VisibleTimerOfRewardObj;
     AudioSource ValueRewardAudio;
     public AudioClip coinSound;
@@ -24,6 +25,8 @@ public class GetRewardValue : MonoBehaviour
     void Start()
     {
         stageFailMessage =  GameObject.Find("StageFailMessage");
+        newRecordMessage = GameObject.Find("NewRecordMessage");
+        stageClearMessage = GameObject.Find("StageClearMessage");
 
         int lastPercent = DataLoadAndSave.LoadStageClearPercent(StaticInfoManager.current_stage,StaticInfoManager.level);
         if (lastPercent < StaticInfoManager.clearPercent)
@@ -47,35 +50,40 @@ public class GetRewardValue : MonoBehaviour
 
         if (StaticInfoManager.clearPercent < 10)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "ㅋㅋ..";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("RewardMessage1");
         }else if(StaticInfoManager.clearPercent >= 10 && StaticInfoManager.clearPercent < 30)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "좀 더 분발해보세요!";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("RewardMessage2");
         }
         else if (StaticInfoManager.clearPercent >= 30 && StaticInfoManager.clearPercent < 60)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "와 절반쯤 가셨어요!";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("RewardMessage3");
         }
         else if (StaticInfoManager.clearPercent >= 60 && StaticInfoManager.clearPercent < 80)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "적응해 가시는군";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("RewardMessage4");
         }
         else if (StaticInfoManager.clearPercent >= 80 && StaticInfoManager.clearPercent < 100)
         {
-            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = "아이고 아까워라!";
+            stageFailMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("RewardMessage5");
         }
 
         if (!StaticInfoManager.isNewRecord)
         {
-            Destroy(GameObject.Find("NewRecordMessage"));
+            Destroy(newRecordMessage);
+        }
+        else
+        {
+            newRecordMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("NewRecordMessage");
         }
 
         if (!StaticInfoManager.isCleared)
         {
-            Destroy(GameObject.Find("StageClearMessage"));
+            Destroy(stageClearMessage);
         }
         else
         {
+            stageClearMessage.GetComponent<RetroPrinterScriptBasic>().CursorCharacter = StaticInfoManager.lang.getString("StageClearMessage");
             Destroy(stageFailMessage);
         }
 

@@ -8,10 +8,10 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SSTools.ShowMessage("반갑습니다. 롤링 애니멀은 처음이시죠?", SSTools.Position.top, SSTools.Time.threeSecond);
-        StartCoroutine(NextSentence("발자국을 따라 이동해보세요.",3f));
-        StartCoroutine(NextSentence("발자국을 따라 이동해보세요.",6f));
-        StartCoroutine(NextSentence("잘하고 있어요. 계속 이동해보세요.",9f));
+        SSTools.ShowMessage(StaticInfoManager.lang.getString("tutorial_sentence1"), SSTools.Position.top, SSTools.Time.threeSecond);
+        StartCoroutine(NextSentence(StaticInfoManager.lang.getString("tutorial_sentence2"), 3f));
+        StartCoroutine(NextSentence(StaticInfoManager.lang.getString("tutorial_sentence2"), 6f));
+        StartCoroutine(NextSentence(StaticInfoManager.lang.getString("tutorial_sentence3"), 9f));
         DataLoadAndSave.SaveTutorialState();
         StaticInfoManager.current_stage = 0;
         StaticInfoManager.life = 100;
@@ -32,17 +32,17 @@ public class TutorialManager : MonoBehaviour
     {
         if (player.transform.position.z > 17.2f && player.transform.position.z < 17.8f)
         {
-            SSTools.ShowMessage("앞에 장애물이 있습니다. 피해서 건너가세요.", SSTools.Position.top, SSTools.Time.threeSecond);
+            SSTools.ShowMessage(StaticInfoManager.lang.getString("tutorial_sentence4"), SSTools.Position.top, SSTools.Time.threeSecond);
         }
 
         if (player.transform.position.z > 29.2f && player.transform.position.z < 29.8f)
         {
-            SSTools.ShowMessage("거의 다 왔어요. 힘내세요!", SSTools.Position.top, SSTools.Time.threeSecond);
+            SSTools.ShowMessage(StaticInfoManager.lang.getString("tutorial_sentence5"), SSTools.Position.top, SSTools.Time.threeSecond);
         }
 
         if (player.transform.position.z > 33.2f && player.transform.position.z < 33.8f)
         {
-            SSTools.ShowMessage("축하합니다! 튜토리얼을 완료하셨습니다.", SSTools.Position.top, SSTools.Time.threeSecond);
+            SSTools.ShowMessage(StaticInfoManager.lang.getString("tutorial_sentence6"), SSTools.Position.top, SSTools.Time.threeSecond);
         }
     }
 

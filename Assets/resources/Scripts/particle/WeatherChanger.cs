@@ -68,7 +68,7 @@ public class WeatherChanger : MonoBehaviour
                         onetime = false;
                         StartCoroutine("Done");
                     }
-                    if (light.intensity < 1.5f)
+                    if (light.intensity < 2f)
                     {
                         light.intensity = light.intensity + 0.01f;
                     }

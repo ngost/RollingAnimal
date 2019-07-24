@@ -1240,6 +1240,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &426642430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426642432}
+  - component: {fileID: 426642431}
+  m_Layer: 0
+  m_Name: LanguageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &426642431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426642430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3143b9dfe6d964fc8a9936a6f5870830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &426642432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426642430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4800145, y: 3.0696278, z: 78.40935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538723789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,9 +2153,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1540153819}
-  - component: {fileID: 1540153818}
   - component: {fileID: 1540153817}
   - component: {fileID: 1540153816}
+  - component: {fileID: 1540153818}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2130,8 +2173,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 21df8d077375c462aaa5238a2628af57, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2238,11 +2281,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540153815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68415de4289546b784a80416bdf281c, type: 3}
+  m_Script: {fileID: 11500000, guid: 19f69f0e5cf744cfa9a0836b94560381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 21df8d077375c462aaa5238a2628af57, type: 3}
-  sceneName: GreenRoomScene
 --- !u!4 &1540153819
 Transform:
   m_ObjectHideFlags: 0

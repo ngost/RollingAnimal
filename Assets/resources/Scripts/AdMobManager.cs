@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AdMobManager : MonoBehaviour
 {
-    public static AdMobManager instance;
+    public static AdMobManager instance = null;
     private static bool isAdsLoaded = false;
     private static bool isAdsLoadedForInterstitial = false;
     public string android_banner_id;
@@ -149,6 +149,9 @@ public class AdMobManager : MonoBehaviour
         interstitialAd.OnAdFailedToLoad -= HandleOnAdFailedToLoad;
         StaticInfoManager.life = 1;
         interstitialAd.Destroy();
+
+        StaticInfoManager.current_player_position = 0f;
+
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
 
@@ -160,6 +163,9 @@ public class AdMobManager : MonoBehaviour
         interstitialAd.OnAdFailedToLoad -= HandleOnAdFailedToLoad;
         StaticInfoManager.life = 1;
         interstitialAd.Destroy();
+
+        StaticInfoManager.current_player_position = 0f;
+
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

@@ -155,7 +155,7 @@ public static class DataLoadAndSave
 
     public static string LoadStageName(int stageNum)
     {
-        string stageName = PlayerPrefs.GetString("stage" + stageNum + "Name", "준비중");
+        string stageName = PlayerPrefs.GetString("stage" + stageNum + "Name", StaticInfoManager.lang.getString("stage_coming"));
         return stageName;
     }
 

@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -46,14 +48,12 @@ public class MenuControler : MonoBehaviour
         {
             initor.SetBackgroundAlpha();
         }
+        //Stage Name Init
+        DataLoadAndSave.AddNewStageName(1, StaticInfoManager.lang.getString("stage1_name"));
+        DataLoadAndSave.AddNewStageName(2, StaticInfoManager.lang.getString("stage2_name"));
+        DataLoadAndSave.AddNewStageName(3, StaticInfoManager.lang.getString("stage3_name"));
 
-        if (!StaticInfoManager.isStageNameInit)
-        {
-            DataLoadAndSave.AddNewStageName(1,"구름 많은 날");
-            DataLoadAndSave.AddNewStageName(2, "계곡에서 보는 노을");
-            DataLoadAndSave.AddNewStageName(3, "눈 쌓인 광산");
-            StaticInfoManager.isStageNameInit = true;
-        }
+
         //stage_clip = new AudioClip[total_stage_num];
         last_stage_number = 0;
         panel = gameObject.transform.parent.gameObject;
@@ -82,7 +82,7 @@ public class MenuControler : MonoBehaviour
         string stageName = DataLoadAndSave.LoadStageName(1);
         int clearPercent = DataLoadAndSave.LoadStageClearPercent(1,StaticInfoManager.level);
         stageNameText.text = stageName;
-        stageClearPercentText.text = clearPercent + " % 클리어";
+        stageClearPercentText.text = clearPercent + " % " + StaticInfoManager.lang.getString("clear");
 
         if (!DataLoadAndSave.LoadSoundData("back_sound"))
         {
@@ -177,7 +177,7 @@ public class MenuControler : MonoBehaviour
         string stageName = DataLoadAndSave.LoadStageName(last_stage_number + 1);
         int clearPercent = DataLoadAndSave.LoadStageClearPercent(last_stage_number + 1, StaticInfoManager.level);
         stageNameText.text = stageName;
-        stageClearPercentText.text = clearPercent + " % 클리어";
+        stageClearPercentText.text = clearPercent + " % "+StaticInfoManager.lang.getString("clear");
     }
 
 }

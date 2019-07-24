@@ -46,7 +46,7 @@ public class StagePannelSizeInit : MonoBehaviour
 
     public void SetBackgroundAlpha()
     {
-        Debug.Log(StaticInfoManager.level);
+//        Debug.Log(StaticInfoManager.level);
         lastStage = DataLoadAndSave.LoadTopClearStage(StaticInfoManager.level);
         if (int.Parse(gameObject.name) > lastStage)
         {
