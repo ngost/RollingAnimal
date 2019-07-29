@@ -146,7 +146,7 @@ MonoBehaviour:
   MonsterMoveDirection: 2
   rotationPeriod: 0.15
   sideLength: 1
-  effect: {fileID: 100018, guid: a40b64bf23366dc42a892af2c6ff6140, type: 3}
+  effect: {fileID: 9031619448370065329, guid: a9ebeeac88128400bba25ef96ad83925, type: 3}
   canTouch: 0
 --- !u!82 &1235023064993449572
 AudioSource:

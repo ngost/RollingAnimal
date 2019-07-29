@@ -182,10 +182,14 @@ public class PlayerControler : MonoBehaviour
         // 키 입력이하고 Cube가 회전 중이 아닌 경우, Cube를 회전한다.
         if ((x != 0f || y != 0f) && !isRotate)
         {
-            RefreshCombo();
+            if (!control.isClear)
+            {
+                RefreshCombo();
+                percent = (int)Mathf.Round(((transform.position.z * endPositionZ * 100)));
+                percent_text.text = percent.ToString() + " %";
+            }
             control.FootPrint();
-            percent = (int)Mathf.Round(((transform.position.z * endPositionZ * 100)));
-            percent_text.text = percent.ToString() + " %";
+
 
             directionX = y; // 회전 방향 세트 (x, y 중 하나는 반드시 0)
             directionZ = x; // 회전 방향 세트 (x, y 중 하나는 반드시 0)

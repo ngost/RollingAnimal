@@ -110,7 +110,7 @@ public class BoxControler : MonoBehaviour
 
     IEnumerator ReturnToShop()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("ShopScene");
 
     }

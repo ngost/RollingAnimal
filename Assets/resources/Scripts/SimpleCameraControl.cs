@@ -93,7 +93,7 @@ public class SimpleCameraControl : MonoBehaviour
             {
                 destroyLine = transform.position.z - 1;
                 //플레이어의 위치보다 카메라의 위치가 더 멀리 있으면 플레이어 죽음
-                if (actor.transform.position.z < transform.position.z+7f)
+                if (actor.transform.position.z < transform.position.z+6f)
                 {
                     action_control.Dead();
                     cameraPosition = 0f;

@@ -34,12 +34,11 @@ public class MenuIconInitor : MonoBehaviour
             //level icon layout init
             levelIcon = transform.Find("LevelBtn").gameObject;
             RectTransform level_trans = levelIcon.GetComponent<RectTransform>();
-            float Level_Icon_height = Screen.height / 8;
-            float Level_Icon_width = Level_Icon_height * 0.67f;
+            float Level_Icon_width = Screen.width * 0.18f;
+            float Level_Icon_height = Coin_Icon_height;
 
             level_trans.sizeDelta = new Vector2(Level_Icon_width, Level_Icon_height);
-            level_trans.anchoredPosition3D = new Vector3((Screen.width * 0.5f) - (Level_Icon_width * 0.5f), -(Screen.height * 0.5f) + (Level_Icon_height * 0.5f));
-            //levelIcon.transform.Find("levelText").GetComponent<Text>().fontSize = Mathf.RoundToInt(Screen.width * 0.05f);
+            level_trans.anchoredPosition3D = new Vector3(Level_Icon_width * 0.5f, Level_Icon_height * -0.5f - (Level_Icon_height*1.2f), 0f);
 
 
             //setting icon layout init

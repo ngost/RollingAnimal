@@ -21,7 +21,7 @@ public class MenuControler : MonoBehaviour
     Text stageNameText, stageClearPercentText;
     public bool isTouching;
     GameObject level_btn;
-
+    public bool lefting = false, righting = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +30,15 @@ public class MenuControler : MonoBehaviour
         level_btn = GameObject.Find("LevelBtn");
         if (StaticInfoManager.level == 0)
         {
-            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_easy");
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_easy");
         }
         else if (StaticInfoManager.level == 1)
         {
-            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_normal");
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_normal");
         }
         else if (StaticInfoManager.level == 2)
         {
-            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_hard");
+            level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_hard");
         }
 
         //stage pannel size init
@@ -118,10 +118,19 @@ public class MenuControler : MonoBehaviour
         }
 
 
-
-
         if (!isTouching)
         {
+            if (lefting)
+            {
+                Debug.Log("lefting");
+                GotoLeftPannel(current_stage_number);
+                return;
+            }else if (righting)
+            {
+                Debug.Log("righting");
+                GotoRightPannel(current_stage_number);
+                return;
+            }
 
             if (Mathf.Abs(scrollRect.velocity.x) < 600)
             {
@@ -178,6 +187,16 @@ public class MenuControler : MonoBehaviour
         int clearPercent = DataLoadAndSave.LoadStageClearPercent(last_stage_number + 1, StaticInfoManager.level);
         stageNameText.text = stageName;
         stageClearPercentText.text = clearPercent + " % "+StaticInfoManager.lang.getString("clear");
+    }
+
+    public void GotoLeftPannel(int current_stage_number)
+    {
+        panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(panel_transform.localPosition.x + Screen.width*0.75f, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
+    }
+
+    public void GotoRightPannel(int current_stage_number)
+    {
+        panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(panel_transform.localPosition.x - Screen.width * 0.75f, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
     }
 
 }

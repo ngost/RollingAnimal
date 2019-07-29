@@ -133,23 +133,23 @@ public class MenuBtnEventListener : MonoBehaviour
         {
             if (StaticInfoManager.level == 0)
             {
-                SSTools.ShowMessage("난이도 설정 변경 : 보통", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("난이도 설정 변경 : 보통", SSTools.Position.bottom, SSTools.Time.oneSecond);
                 StaticInfoManager.level = 1;
-                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_normal");
+                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_normal");
                 menu_controler.changeCurrentStageInfo();
             }
             else if(StaticInfoManager.level == 1)
             {
-                SSTools.ShowMessage("난이도 설정 변경 : 어려움", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("난이도 설정 변경 : 어려움", SSTools.Position.bottom, SSTools.Time.oneSecond);
                 StaticInfoManager.level = 2;
-                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_hard");
+                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_hard");
                 menu_controler.changeCurrentStageInfo();
             }
             else if (StaticInfoManager.level == 2)
             {
-                SSTools.ShowMessage("난이도 설정 변경 : 쉬움", SSTools.Position.bottom, SSTools.Time.twoSecond);
+                SSTools.ShowMessage("난이도 설정 변경 : 쉬움", SSTools.Position.bottom, SSTools.Time.oneSecond);
                 StaticInfoManager.level = 0;
-                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/level_easy");
+                level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_easy");
                 menu_controler.changeCurrentStageInfo();
             }
 
@@ -164,11 +164,12 @@ public class MenuBtnEventListener : MonoBehaviour
 
         if (name.Equals("LeftArrow"))
         {
-
+            Debug.Log("left btn clicked");
+            StartCoroutine("SwitchLeft");            
         }
         if (name.Equals("RightArrow"))
         {
-
+            StartCoroutine("SwitchRight");
         }
 
         if (name.Equals("backBtn"))
@@ -200,4 +201,16 @@ public class MenuBtnEventListener : MonoBehaviour
         Destroy(GameObject.Find("StoryBgm"));
     }
 
+    IEnumerator SwitchLeft()
+    {
+        menu_controler.lefting = true;
+        yield return new WaitForSeconds(0.1f);
+        menu_controler.lefting = false;
+    }
+    IEnumerator SwitchRight()
+    {
+        menu_controler.righting = true;
+        yield return new WaitForSeconds(0.1f);
+        menu_controler.righting = false;
+    }
 }
