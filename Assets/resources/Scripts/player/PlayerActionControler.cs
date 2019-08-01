@@ -122,7 +122,7 @@ public class PlayerActionControler : MonoBehaviour
     {
         Debug.Log("Destroy Actor!!");
         //        gameObject.GetComponent<MeshRenderer>().enabled = false;
-        gameObject.transform.Find("Dog").GetComponent<Animator>().SetTrigger(_AnimDeathMotionTrigger);
+        gameObject.transform.GetComponentInChildren<Animator>().SetTrigger(_AnimDeathMotionTrigger);
         StaticInfoManager.maxCombo = controler.maxCombo;
         if (StaticInfoManager.clearPercent < controler.percent)
         {

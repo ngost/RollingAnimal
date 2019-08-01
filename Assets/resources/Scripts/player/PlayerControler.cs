@@ -77,7 +77,7 @@ public class PlayerControler : MonoBehaviour
         comboText = combo_obj.GetComponent<Text>();
         percent_text = clear_percent.GetComponent<Text>();
 
-        clear_percent.GetComponent<RectTransform>().localPosition = new Vector3(Screen.width * 0.4f, Screen.height * 0.47f, 0);
+        clear_percent.GetComponent<RectTransform>().localPosition = new Vector3(Screen.width * 0.38f, Screen.height * 0.47f, 0);
         combo_obj.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height * 0.25f, 0);
         ControlBackground = GameObject.Find("ControlBackground");
         ControlBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width,Screen.height*0.4f);
@@ -105,7 +105,7 @@ public class PlayerControler : MonoBehaviour
         if(comboCoolTime > 0f)
         {
             comboCoolTime -= Time.deltaTime;
-            combo_obj.transform.localScale = combo_obj.transform.localScale * 0.95f;
+//            combo_obj.transform.localScale = combo_obj.transform.localScale * 0.95f;
             CompareToMaxCombo();
         }
         else
@@ -186,7 +186,8 @@ public class PlayerControler : MonoBehaviour
             {
                 RefreshCombo();
                 percent = (int)Mathf.Round(((transform.position.z * endPositionZ * 100)));
-                percent_text.text = percent.ToString() + " %";
+//                percent_text.text = percent.ToString() + " %";
+                percent_text.text = string.Format("{0} %", percent);
             }
             control.FootPrint();
 
@@ -212,7 +213,7 @@ public class PlayerControler : MonoBehaviour
             float ratio = Mathf.Lerp(0, 1, rotationTime / rotationPeriod); // 회전 시간에 대한 지금의 경과 시간의 비율
 
             // 이동
-            float thetaRad = Mathf.Lerp(0, Mathf.PI / 2f, ratio); // 회전 각도를 라디안으로.
+            float thetaRad = Mathf.Lerp(0, Mathf.PI * 0.5f, ratio); // 회전 각도를 라디안으로.
             float distanceX = -directionX * radius * (Mathf.Cos(45f * Mathf.Deg2Rad) - Mathf.Cos(45f * Mathf.Deg2Rad + thetaRad)); // X 축 이동 거리. - 부호는 키와 이동 방향을 맞추기 위해.
             float distanceY = radius * (Mathf.Sin(45f * Mathf.Deg2Rad + thetaRad) - Mathf.Sin(45f * Mathf.Deg2Rad)); // Y 축 이동 거리
             float distanceZ = directionZ * radius * (Mathf.Cos(45f * Mathf.Deg2Rad) - Mathf.Cos(45f * Mathf.Deg2Rad + thetaRad)); // Z 축 이동 거리
@@ -237,7 +238,8 @@ public class PlayerControler : MonoBehaviour
         comboText.enabled = true;
         currentCombo++;
         comboCoolTime = 1.5f;
-        comboText.text = currentCombo + " Combo";
+//        comboText.text = currentCombo + " Combo";
+        comboText.text = string.Format("{0} Combo", currentCombo);
         combo_obj.transform.localScale = new Vector3(1f, 1f, 1f);
 
         //플레이어의 현재 위치 저장
@@ -263,7 +265,7 @@ public class PlayerControler : MonoBehaviour
         yield return new WaitForSeconds(2f);
         anykeyTouched = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         CountDownObj.SetActive(false);
     }
 }

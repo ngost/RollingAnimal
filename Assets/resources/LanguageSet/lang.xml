@@ -32,6 +32,7 @@
         <bronze_box_name>Bronze Box</bronze_box_name>
         <silver_box_name>Silver Box</silver_box_name>
         <gold_box_name>Gold Box</gold_box_name>
+        <CoinRequire>You don't have coins.</CoinRequire>
     </English>
         
     <Korean>
@@ -88,6 +89,7 @@
         <Animal19>판다</Animal19>
         <Animal20>블랙 버드</Animal20>
         <Animal21>라이언</Animal21>
+        <CoinRequire>코인이 충분하지 않습니다.</CoinRequire>
         
 
     </Korean>
@@ -124,6 +126,8 @@
         <bronze_box_name>бронза коробка</bronze_box_name>
         <silver_box_name>Срібний коробка</silver_box_name>
         <gold_box_name>золото коробка</gold_box_name>
+        <CoinRequire>У вас немає монети.</CoinRequire>
+        
     </Ukrainian>
     
     <Russian>
@@ -158,6 +162,7 @@
         <bronze_box_name>бронза коробка</bronze_box_name>
         <silver_box_name>Серебряный коробка</silver_box_name>
         <gold_box_name>золото коробка</gold_box_name>
+        <CoinRequire>В вас нет монеты.</CoinRequire>
     </Russian>
 </languages>
     

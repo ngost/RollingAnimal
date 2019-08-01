@@ -233,10 +233,30 @@ public class GetRewardValue : MonoBehaviour
         {
             value = value * 1.5f;
         }
-        if(StaticInfoManager.clearPercent >= 10)
+        if(StaticInfoManager.clearPercent >= 10 && StaticInfoManager.clearPercent<30)
         {
             value = value + StaticInfoManager.current_stage * 50;
+        }else if(StaticInfoManager.clearPercent >= 30 && StaticInfoManager.clearPercent < 50)
+        {
+            value = value + StaticInfoManager.current_stage * 70;
         }
-        return (int) Mathf.Round(value);
+        else if (StaticInfoManager.clearPercent >= 50 && StaticInfoManager.clearPercent < 70)
+        {
+            value = value + StaticInfoManager.current_stage * 90;
+        }
+        else if (StaticInfoManager.clearPercent >= 70 && StaticInfoManager.clearPercent <= 100)
+        {
+            value = value + StaticInfoManager.current_stage * 110;
+        }
+
+        if(StaticInfoManager.level == 1)
+        {
+            value = value * 1.5f;
+        }
+        else if (StaticInfoManager.level == 2)
+        {
+            value = value * 2f;
+        }
+            return (int) Mathf.Round(value);
     }
 }

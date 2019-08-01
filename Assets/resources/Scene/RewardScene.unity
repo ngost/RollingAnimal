@@ -1705,25 +1705,6 @@ PrefabInstance:
     - {fileID: 5310307030553860787, guid: 006c927f2383b40d59477557d24608d5, type: 3}
     - {fileID: 8684402575239254581, guid: 006c927f2383b40d59477557d24608d5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 006c927f2383b40d59477557d24608d5, type: 3}
---- !u!1 &918155303 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5311438200277902490, guid: 006c927f2383b40d59477557d24608d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 918155302}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &918155304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918155303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef91062e36e742f7bb5aa4a8da6d21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _AnimMotionTriggerName: Idle2
 --- !u!1 &1434014047
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2453,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1851495695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5310307030553860789, guid: 006c927f2383b40d59477557d24608d5,
+    type: 3}
+  m_PrefabInstance: {fileID: 918155302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1851495696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851495695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057c95ff13c894a73946da169795204a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1851495697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851495695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef91062e36e742f7bb5aa4a8da6d21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _AnimMotionTriggerName: 
 --- !u!1001 &1923574361
 PrefabInstance:
   m_ObjectHideFlags: 0

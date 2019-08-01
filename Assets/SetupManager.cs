@@ -78,5 +78,7 @@ public class SetupManager : MonoBehaviour
 
         RetroPrinterScriptBasic menu_retro = (RetroPrinterScriptBasic)GameObject.Find("TouchText").GetComponent(typeof(RetroPrinterScriptBasic));
         menu_retro.CursorCharacter = StaticInfoManager.lang.getString("touch_text");
+
+        GameDataLoader loader = new GameDataLoader();
     }
 }

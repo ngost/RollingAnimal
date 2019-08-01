@@ -12,7 +12,7 @@ public class AnimControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
+        animator = gameObject.GetComponentInChildren<Animator>();
         ValueRewardObj = GameObject.Find("ValueReward");
         VisibleTimerOfRewardObj = (VisibleTimer)ValueRewardObj.GetComponent(typeof(VisibleTimer));
         animator.SetTrigger("Walk");
@@ -31,7 +31,7 @@ public class AnimControler : MonoBehaviour
 
     public void PlayOneShot()
     {
-        animator.SetTrigger(_AnimMotionTriggerName);
+        animator.SetTrigger("Idle");
         isPlayed = true;
     }
 }

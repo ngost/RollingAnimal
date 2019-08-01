@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using Animmal.Animmals1;
 public class MenuBtnEventListener : MonoBehaviour
 {
     bool effect_sound_enable;
@@ -11,8 +12,10 @@ public class MenuBtnEventListener : MonoBehaviour
     bool changeable = false;
     GameObject level_btn;
     MenuControler menu_controler;
+    GameDataLoader loader;
+    InventoryClass inventory;
     private void Start()
-    {
+    { 
         DestroySingletonSound();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StaticInfoManager.life = 1;
@@ -129,6 +132,7 @@ public class MenuBtnEventListener : MonoBehaviour
             SceneManager.LoadScene("InventoryScene");
             return;
         }
+        
         if (name.Equals("level"))
         {
             if (StaticInfoManager.level == 0)
@@ -172,6 +176,26 @@ public class MenuBtnEventListener : MonoBehaviour
             StartCoroutine("SwitchRight");
         }
 
+        if (name.Equals("select"))
+        {
+            int selectedId = ((PreviewManager)GameObject.Find("PreviewManager").GetComponent(typeof(PreviewManager))).CurrentItemID;
+            loader = new GameDataLoader();
+            inventory = loader.LoadData();
+
+            if (inventory.isOwn[selectedId])
+            {
+                DataLoadAndSave.SaveSelectedCharator(selectedId);
+                SceneManager.LoadScene("GreenRoomScene");
+            }
+            else
+            {
+                SSTools.ShowMessage("캐릭터를 보유하고 있지 않습니다.", SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
+
+
+
+        }
+
         if (name.Equals("backBtn"))
         {
             SceneManager.LoadScene("GreenRoomScene");
@@ -180,17 +204,42 @@ public class MenuBtnEventListener : MonoBehaviour
         if (name.Equals("BronzeBox"))
         {
             StaticInfoManager.boxType = 0;
-            SceneManager.LoadScene("BoxScene");
+            if (DataLoadAndSave.LoadCoin() >= 1000)
+            {
+                DataLoadAndSave.CoinsUsed(1000);
+                SceneManager.LoadScene("BoxScene");
+            }
+            else
+            {
+                SSTools.ShowMessage(StaticInfoManager.lang.getString("CoinRequire"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
         }
         if (name.Equals("SilverBox"))
         {
-            StaticInfoManager.boxType = 1;
-            SceneManager.LoadScene("BoxScene");
+            if (DataLoadAndSave.LoadCoin() >= 4500)
+            {
+                StaticInfoManager.boxType = 1;
+                DataLoadAndSave.CoinsUsed(4500);
+                SceneManager.LoadScene("BoxScene");
+            }
+            else
+            {
+                SSTools.ShowMessage(StaticInfoManager.lang.getString("CoinRequire"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
+
         }
         if (name.Equals("GoldBox"))
         {
-            StaticInfoManager.boxType = 2;
-            SceneManager.LoadScene("BoxScene");
+            if(DataLoadAndSave.LoadCoin() >= 8500)
+            {
+                StaticInfoManager.boxType = 2;
+                DataLoadAndSave.CoinsUsed(8500);
+                SceneManager.LoadScene("BoxScene");
+            }
+            else
+            {
+                SSTools.ShowMessage(StaticInfoManager.lang.getString("CoinRequire"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+            }
         }
 
         //Debug.Log(name+"clicked!");

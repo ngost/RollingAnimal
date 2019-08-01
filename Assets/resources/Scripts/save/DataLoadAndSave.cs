@@ -4,6 +4,15 @@ using UnityEngine;
 
 public static class DataLoadAndSave
 {
+    public static void SaveSelectedCharator(int val)
+    {
+        PlayerPrefs.SetInt("selected", val);
+    }
+    public static int LoadSelectedCharator()
+    {
+        return PlayerPrefs.GetInt("selected", 0);
+    }
+
     public static void SaveTutorialState()
     {
         PlayerPrefs.SetInt("tutorial", 1);
