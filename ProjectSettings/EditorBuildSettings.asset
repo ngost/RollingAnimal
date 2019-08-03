@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/resources/Scene/MapCreateScene.unity
     guid: 1347afa0d23984f129082ea2bb18b243
   - enabled: 1
+    path: Assets/resources/Scene/LoadingScene.unity
+    guid: a59f10ea4c8f248c88ca6a4d75b97db7
+  - enabled: 1
     path: Assets/resources/Scene/Stage_1_1.unity
     guid: c96cf144ea374446e9880c4b9a872204
   - enabled: 1

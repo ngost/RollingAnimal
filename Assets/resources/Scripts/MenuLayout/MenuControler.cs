@@ -22,6 +22,7 @@ public class MenuControler : MonoBehaviour
     public bool isTouching;
     GameObject level_btn;
     public bool lefting = false, righting = false;
+    GameObject Content;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +43,8 @@ public class MenuControler : MonoBehaviour
         }
 
         //stage pannel size init
-
-        StagePannelSizeInit[] sizeInitor = GameObject.Find("Content").GetComponentsInChildren<StagePannelSizeInit>();
+        Content = GameObject.Find("Content");
+        StagePannelSizeInit[] sizeInitor = Content.GetComponentsInChildren<StagePannelSizeInit>();
         foreach (StagePannelSizeInit initor in sizeInitor)
         {
             initor.SetBackgroundAlpha();
@@ -56,10 +57,10 @@ public class MenuControler : MonoBehaviour
 
         //stage_clip = new AudioClip[total_stage_num];
         last_stage_number = 0;
-        panel = gameObject.transform.parent.gameObject;
+        panel = Content;
         panel_transform = panel.GetComponent<RectTransform>();
         panel_rg = panel.GetComponent<Rigidbody>();
-        scroll = panel.gameObject.transform.parent.gameObject.transform.parent.gameObject;
+        scroll = panel.transform.parent.gameObject.transform.parent.gameObject;
         scrollRect = (MyScrollRect)scroll.GetComponent(typeof(MyScrollRect));
 
         alphaX = panel_transform.sizeDelta.x * 0.5f;
@@ -95,90 +96,101 @@ public class MenuControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //this is current panel position. first is 0.
-        float x = panel_transform.localPosition.x;
-        // item to item width is 1500.
-        // x / 750 = 0.xx,  1.xxx, etc...
-        x = Mathf.Abs(x);
-        x = x + Screen.width*0.5f;
-        //x = x - 3000;
-        //Debug.Log(x);
-        int current_stage_number = (int) (x/Screen.width);
-
-        float xMagnatitude = current_stage_number * Screen.width;
-        // xMagnatitude = xMagnatitude;
-        //Debug.Log(scrollRect.velocity);
-        if(Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+        try
         {
-            isTouching = true;
-        }
-        else
-        {
-            isTouching = false;
-        }
+            //this is current panel position. first is 0.
+            float x = panel_transform.localPosition.x;
+            // item to item width is 1500.
+            // x / 750 = 0.xx,  1.xxx, etc...
+            x = Mathf.Abs(x);
+            x = x + Screen.width * 0.5f;
+            //x = x - 3000;
+            //Debug.Log(x);
+            int current_stage_number = (int)(x / Screen.width);
 
-
-        if (!isTouching)
-        {
-            if (lefting)
+            float xMagnatitude = current_stage_number * Screen.width;
+            // xMagnatitude = xMagnatitude;
+            //Debug.Log(scrollRect.velocity);
+            if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
             {
-                Debug.Log("lefting");
-                GotoLeftPannel(current_stage_number);
-                return;
-            }else if (righting)
-            {
-                Debug.Log("righting");
-                GotoRightPannel(current_stage_number);
-                return;
-            }
-
-            if (Mathf.Abs(scrollRect.velocity.x) < 600)
-            {
-                scrollRect.velocity = new Vector2(0, 0);
-                panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(-Screen.width * current_stage_number, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
-                stageNameText.enabled = true;
-                stageClearPercentText.enabled = true;
-                leftArrow.enabled = true;
-                rightArrow.enabled = true;
+                isTouching = true;
             }
             else
             {
-                //화면이 스크롤중일때
-                stageNameText.enabled = false;
-                stageClearPercentText.enabled = false;
-                leftArrow.enabled = false;
-                rightArrow.enabled = false;
-                //Debug.Log(scrollRect.velocity);
+                isTouching = false;
             }
-            if (last_stage_number.Equals(current_stage_number))
-            {
-                //not thing;
-            }
-            else
-            {
-                //if, viewing stage is change, save last stage number.
-                last_stage_number = current_stage_number;
-                // change sound of current stage sound.
-                m_audioSource.Stop();
 
-                // new audio play!
-                try
+
+            if (!isTouching)
+            {
+                if (lefting)
                 {
-                    if (DataLoadAndSave.LoadSoundData("back_sound"))
+                    Debug.Log("lefting");
+                    GotoLeftPannel(current_stage_number);
+                    return;
+                }
+                else if (righting)
+                {
+                    Debug.Log("righting");
+                    GotoRightPannel(current_stage_number);
+                    return;
+                }
+
+                if (Mathf.Abs(scrollRect.velocity.x) < 600)
+                {
+                    scrollRect.velocity = new Vector2(0, 0);
+                    panel_transform.localPosition = Vector3.Lerp(panel_transform.localPosition, new Vector3(-Screen.width * current_stage_number, panel_transform.localPosition.y, panel_transform.localPosition.z), 10f * Time.deltaTime);
+                    stageNameText.enabled = true;
+                    stageClearPercentText.enabled = true;
+                    leftArrow.enabled = true;
+                    rightArrow.enabled = true;
+                }
+                else
+                {
+                    //화면이 스크롤중일때
+                    stageNameText.enabled = false;
+                    stageClearPercentText.enabled = false;
+                    leftArrow.enabled = false;
+                    rightArrow.enabled = false;
+                    //Debug.Log(scrollRect.velocity);
+                }
+                if (last_stage_number.Equals(current_stage_number))
+                {
+                    //not thing;
+                }
+                else
+                {
+                    //if, viewing stage is change, save last stage number.
+                    last_stage_number = current_stage_number;
+                    // change sound of current stage sound.
+                    m_audioSource.Stop();
+
+                    // new audio play!
+                    try
                     {
-                        m_audioSource.clip = stage_clip[current_stage_number];
-                        m_audioSource.Play();
-                        m_audioSource.loop = true;
+                        if (DataLoadAndSave.LoadSoundData("back_sound"))
+                        {
+                            m_audioSource.clip = stage_clip[current_stage_number];
+                            m_audioSource.Play();
+                            m_audioSource.loop = true;
+                        }
+                        // get stage name and percent
+                        changeCurrentStageInfo();
                     }
-                    // get stage name and percent
-                    changeCurrentStageInfo();
-                }
-                catch (IndexOutOfRangeException e)
-                {
-                    Debug.Log("index out");
+                    catch (IndexOutOfRangeException e)
+                    {
+                        Debug.Log("index out");
+                    }
                 }
             }
+
         }
+        catch (MissingReferenceException e)
+        {
+            //nothing
+            Debug.Log("may be Loading Scene");
+        }
+        
     }
 
     public void changeCurrentStageInfo()

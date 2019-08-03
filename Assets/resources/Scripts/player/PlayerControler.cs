@@ -237,6 +237,14 @@ public class PlayerControler : MonoBehaviour
     {
         comboText.enabled = true;
         currentCombo++;
+        if (currentCombo>=50 && (currentCombo % 50).Equals(0))
+        {
+            if (!control.isFevering)
+            {
+                StartCoroutine(control.FeverActivate());
+            }
+        }
+
         comboCoolTime = 1.5f;
 //        comboText.text = currentCombo + " Combo";
         comboText.text = string.Format("{0} Combo", currentCombo);

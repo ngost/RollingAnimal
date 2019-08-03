@@ -17,7 +17,7 @@ public class StartAnotherScene : MonoBehaviour
         {
             source.enabled = false;
         }
-        DestroySingletonSound();
+//        DestroySingletonSound();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 //        StaticInfoManager.life = 1;
     }

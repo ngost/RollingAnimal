@@ -22,5 +22,11 @@ public class AppFlyerInitor : MonoBehaviour
                 /* For getting the conversion data in Android, you need to add the "AppsFlyerTrackerCallbacks" listener.*/
                 AppsFlyer.init("zcKrZYJWnrWWctCxcLNnyT", "AppsFlyerTrackerCallbacks");
         #endif
+
+
+
+        #if !UNITY_EDITOR
+                AppLovin.InitializeSdk();
+        #endif
     }
 }

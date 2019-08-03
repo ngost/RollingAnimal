@@ -89,13 +89,14 @@ public class MenuBtnEventListener : MonoBehaviour
                 switch (StaticInfoManager.level)
                 {
                     case 0:
-                        SimpleSceneFader.ChangeSceneWithFade("Stage_" + name + "_1");
+//                        SimpleSceneFader.ChangeSceneWithFade("Stage_" + name + "_1");
+                        LoadingSceneManager.LoadScene("Stage_" + name + "_1");
                         break;
                     case 1:
-                        SimpleSceneFader.ChangeSceneWithFade("Stage_" + name + "_2");
+                        LoadingSceneManager.LoadScene("Stage_" + name + "_2");
                         break;
                     case 2:
-                        SimpleSceneFader.ChangeSceneWithFade("Stage_" + name + "_3");
+                        LoadingSceneManager.LoadScene("Stage_" + name + "_3");
                         break;
                 }
 

@@ -90,6 +90,11 @@
         <Animal20>블랙 버드</Animal20>
         <Animal21>라이언</Animal21>
         <CoinRequire>코인이 충분하지 않습니다.</CoinRequire>
+        <Loading>로딩중...</Loading>
+        <LoadingViewText1>어떤 장애물이든&#xA;한번은 막아줍니다.</LoadingViewText1>
+        <LoadingViewText2>게임 보상이 1.5배&#xA;늘어납니다.</LoadingViewText2>
+        <LoadingViewText3>Fever에 필요한&#xA;Combo가 50% 감소합니다.</LoadingViewText3>
+        <LoadingViewText4>Fever에 필요한 Combo 횟수는&#xA;50 Combo입니다.</LoadingViewText4>
         
 
     </Korean>

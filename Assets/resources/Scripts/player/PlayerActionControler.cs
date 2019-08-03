@@ -41,12 +41,15 @@ public class PlayerActionControler : MonoBehaviour
     private GameObject cameraObj;
     private AudioSource m_audio;
     public AudioClip impact;
+    public AudioClip fever_audio;
+    public AudioClip shield_audio;
     public float limit_move_speed;
     public float targetTime = 5f;
     public float jumpCoolTime = 0f;
     public bool hasCollider = false;
     public bool cameraTriggerSwich = true;
     private bool isAlive = true;
+    private ParticleSystem feverParticle;
     float disovleTime = -50f;
 
     GameObject bombParticle;
@@ -71,6 +74,7 @@ public class PlayerActionControler : MonoBehaviour
     Renderer actor_render;
     public bool isClear = false;
     BoxCollider boxCollider;
+    public bool isFevering = false;
 
     void Start()
     { 
@@ -90,9 +94,10 @@ public class PlayerActionControler : MonoBehaviour
         m_rb = GetComponent<Rigidbody>();
         cameraObj = GameObject.Find("Main Camera");
         m_audio = gameObject.GetComponent<AudioSource>();
-//        stopClip = Resources.Load<AudioClip>("music/stop");
+        feverParticle = gameObject.GetComponentInChildren<ParticleSystem>();
+        //        stopClip = Resources.Load<AudioClip>("music/stop");
 
-                //must set Joystick type correctly..
+        //must set Joystick type correctly..
         //joystick = FindObjectOfType<DynamicJoystick>();
 
         //bombParticle = (GameObject)gameObject.transform.Find("BombParticle").gameObject;
@@ -105,6 +110,19 @@ public class PlayerActionControler : MonoBehaviour
             Debug.Log("okok");
             audioSource.enabled = false;
         }
+
+    }
+    public IEnumerator FeverActivate()
+	{
+        float calibrationVal = controler.rotationPeriod * 0.2f;
+        isFevering = true;
+        audioSource.PlayOneShot(fever_audio, 1f);
+        feverParticle.Play();
+        controler.rotationPeriod -= calibrationVal;
+        yield return new WaitForSeconds(StaticInfoManager.feverTime);
+        feverParticle.Stop();
+        controler.rotationPeriod += calibrationVal;
+        isFevering = false;
 
     }
 

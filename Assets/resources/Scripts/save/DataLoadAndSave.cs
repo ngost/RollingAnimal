@@ -4,6 +4,34 @@ using UnityEngine;
 
 public static class DataLoadAndSave
 {
+    public static int LoadFeverItemIsUsing()
+    {
+        return PlayerPrefs.GetInt("FeverItemUsing", 0);
+    }
+    public static int LoadShieldItemIsUsing()
+    {
+        return PlayerPrefs.GetInt("ShieldItemUsing", 0);
+    }
+    public static int LoadRewardItemIsUsing()
+    {
+        return PlayerPrefs.GetInt("RewardItemUsing", 0);
+    }
+
+    public static void SetShieldItemIsUsing(int val)
+    {
+        PlayerPrefs.GetInt("ShieldItemUsing", val);
+    }
+    public static void SetFeverItemUsing(int val)
+    {
+        PlayerPrefs.GetInt("FeverItemUsing", val);
+    }
+
+    public static void SetRewardItemUsing(int val)
+    {
+        PlayerPrefs.GetInt("RewardItemUsing", val);
+    }
+
+
     public static void SaveSelectedCharator(int val)
     {
         PlayerPrefs.SetInt("selected", val);

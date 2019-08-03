@@ -18,6 +18,8 @@ public static class StaticInfoManager
     public static int experiment_request_stage;
     public static int level = 0;
     public static int boxType = 0;
+	public static float feverTime = 5f;
+	public static float needForFever = 50;
 
     public static void ValueInit()
     {
