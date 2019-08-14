@@ -121,7 +121,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 2.8
+  bundleVersion: 3.1
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -164,7 +164,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.easyjin.rollinganimal
   buildNumber: {}
-  AndroidBundleVersionCode: 400028
+  AndroidBundleVersionCode: 400031
   AndroidMinSdkVersion: 23
   AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
@@ -276,7 +276,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
+      m_Icon: {fileID: 2800000, guid: a3fbcbc82a802437ca3ab4013d15eb1e, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -284,7 +284,7 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_Icons:
     - m_Textures:
-      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
+      - {fileID: 2800000, guid: a3fbcbc82a802437ca3ab4013d15eb1e, type: 3}
       - {fileID: 0}
       m_Width: 432
       m_Height: 432
@@ -316,7 +316,7 @@ PlayerSettings:
       m_Kind: 2
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
+      - {fileID: 2800000, guid: a3fbcbc82a802437ca3ab4013d15eb1e, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 1
@@ -352,7 +352,7 @@ PlayerSettings:
       m_Kind: 1
       m_SubKind: 
     - m_Textures:
-      - {fileID: 2800000, guid: 71469c03b695a4cd4b4c6bad46fff768, type: 3}
+      - {fileID: 2800000, guid: a3fbcbc82a802437ca3ab4013d15eb1e, type: 3}
       m_Width: 192
       m_Height: 192
       m_Kind: 0
@@ -861,9 +861,9 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 06a88e19-029a-4617-a2db-fe717748ce86
+  cloudProjectId: b15cd052-9b34-447d-b74c-bfb0eac3915e
   framebufferDepthMemorylessMode: 0
-  projectName: cameraTest
+  projectName: Rolling Animal
   organizationId: hm5207
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0

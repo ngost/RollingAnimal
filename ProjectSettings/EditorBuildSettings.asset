@@ -6,67 +6,67 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/resources/Scene/TitleScene.unity
+    path: Assets/Datas/Scene/TitleScene.unity
     guid: 915c7e77677ae4a72bd2aeae70f5156a
   - enabled: 1
-    path: Assets/resources/Scene/GreenRoomScene.unity
+    path: Assets/Datas/Scene/GreenRoomScene.unity
     guid: 8366d3fa9659347d2961b9fef34030b8
   - enabled: 1
-    path: Assets/resources/Scene/DummyScene.unity
+    path: Assets/Datas/Scene/DummyScene.unity
     guid: fd9829aaf730d446f8e04fcc643fdcc8
   - enabled: 1
-    path: Assets/resources/Scene/MapCreateScene.unity
+    path: Assets/Datas/Scene/MapCreateScene.unity
     guid: 1347afa0d23984f129082ea2bb18b243
   - enabled: 1
-    path: Assets/resources/Scene/LoadingScene.unity
+    path: Assets/Datas/Scene/LoadingScene.unity
     guid: a59f10ea4c8f248c88ca6a4d75b97db7
   - enabled: 1
-    path: Assets/resources/Scene/Stage_1_1.unity
+    path: Assets/Datas/Scene/Stage_1_1.unity
     guid: c96cf144ea374446e9880c4b9a872204
   - enabled: 1
-    path: Assets/resources/Scene/InventoryScene.unity
+    path: Assets/Datas/Scene/InventoryScene.unity
     guid: 4a5f489d029984056935d124200b00ee
   - enabled: 1
-    path: Assets/resources/Scene/RewardScene.unity
+    path: Assets/Datas/Scene/RewardScene.unity
     guid: aa15e3bd54d7d4e5d8255fbb4368b6d5
   - enabled: 1
-    path: Assets/resources/Scene/BoxScene.unity
+    path: Assets/Datas/Scene/BoxScene.unity
     guid: 3b190eb89bd224016b59cfa16d33c532
   - enabled: 1
-    path: Assets/resources/Scene/ShopScene.unity
+    path: Assets/Datas/Scene/ShopScene.unity
     guid: 4707b68a173384effad07786aa789bb5
   - enabled: 1
     path: Assets/first.unity
     guid: a4949f19af80440158ca3b80c16bb453
   - enabled: 1
-    path: Assets/resources/Scene/SettingScene.unity
+    path: Assets/Datas/Scene/SettingScene.unity
     guid: 0fda4cfaa7cff4ba1a58317986bcfbc4
   - enabled: 1
-    path: Assets/resources/Scene/Stage_2_1.unity
+    path: Assets/Datas/Scene/Stage_2_1.unity
     guid: cfd89d7a29e2c42aca224ec4ebec75e9
   - enabled: 1
-    path: Assets/resources/Scene/Stage_3_1.unity
+    path: Assets/Datas/Scene/Stage_3_1.unity
     guid: 6b543e4ff1e6e4eff96cb57b4dba3994
   - enabled: 1
-    path: Assets/resources/Scene/Tutorial.unity
+    path: Assets/Datas/Scene/Tutorial.unity
     guid: 9a87470b318284fdfab633e5fa649a17
   - enabled: 1
-    path: Assets/resources/Scene/Stage_3_2.unity
+    path: Assets/Datas/Scene/Stage_3_2.unity
     guid: c0d9e25b2281f4875a77f7a4ee8081c7
   - enabled: 1
-    path: Assets/resources/Scene/Stage_3_3.unity
+    path: Assets/Datas/Scene/Stage_3_3.unity
     guid: 15d5c690a21314e3597fd0e5bbcfb2a8
   - enabled: 1
-    path: Assets/resources/Scene/Stage_2_3.unity
+    path: Assets/Datas/Scene/Stage_2_3.unity
     guid: 8e902cb8fedf448c08b8076bf877569a
   - enabled: 1
-    path: Assets/resources/Scene/Stage_2_2.unity
+    path: Assets/Datas/Scene/Stage_2_2.unity
     guid: a0a99b86da12b4e62b4d64a8adf035ea
   - enabled: 1
-    path: Assets/resources/Scene/Stage_1_2.unity
+    path: Assets/Datas/Scene/Stage_1_2.unity
     guid: f593dbde137d343acb48881a16dff906
   - enabled: 1
-    path: Assets/resources/Scene/Stage_1_3.unity
+    path: Assets/Datas/Scene/Stage_1_3.unity
     guid: aad5e9e526f4c4377898a22a15d3b771
   - enabled: 0
     path: Assets/FacebookSDK/Examples/AccessTokenMenu.unity
@@ -98,4 +98,22 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/FacebookSDK/Examples/Pay.unity
     guid: 3ee189cdb21ea4bdb9d7022a0780c44c
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_4_1.unity
+    guid: eeecdb17dbf7e4105accb62051afaa82
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_4_2.unity
+    guid: c454740a0ae2843cfa657d0ce2eef3f7
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_4_3.unity
+    guid: ffc96898d9f8447bb966ea84ba04f38f
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_5_1.unity
+    guid: a7e0f82fb17dd484f865a578a9127357
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_5_2.unity
+    guid: 17382a7500e514f8f8155455d9c80f57
+  - enabled: 1
+    path: Assets/Datas/Scene/Stage_5_3.unity
+    guid: db8509884eed7442ca844130f94d54cd
   m_configObjects: {}

@@ -3,8 +3,10 @@
     <English>
         <touch_text>Touch to Start</touch_text>
         <stage1_name>A lot of clouds</stage1_name>
-        <stage2_name>sunset</stage2_name>
+        <stage2_name>Sunset</stage2_name>
         <stage3_name>Snowmined mine</stage3_name>
+        <stage4_name>Desert</stage4_name>
+        <stage5_name>Beach</stage5_name>
         <stage_coming>Coming soon</stage_coming>
         <clear>clear</clear>
         <tutorial_sentence1>Nice to meet you. Have you ever tried a rolling animal?</tutorial_sentence1>
@@ -33,6 +35,33 @@
         <silver_box_name>Silver Box</silver_box_name>
         <gold_box_name>Gold Box</gold_box_name>
         <CoinRequire>You don't have coins.</CoinRequire>
+        <Loading>Loading...</Loading>
+        <LoadingViewText1>Protects from&#xA;obstacles once.</LoadingViewText1>
+        <LoadingViewText2>Game rewards are&#xA;increased 1.5 times.</LoadingViewText2>
+        <LoadingViewText3>Combo count for Fever&#xA; is reduced by 50%.</LoadingViewText3>
+        <LoadingViewText4>The number of combos&#xA;required for&#xA;the fever is 50 combos.</LoadingViewText4>
+        <Animal0>HotDog</Animal0>
+        <Animal1>Duck</Animal1>
+        <Animal2>Chicken</Animal2>
+        <Animal3>Little Chick</Animal3>
+        <Animal4>Sheep</Animal4>
+        <Animal5>Goat</Animal5>
+        <Animal6>Bunny</Animal6>
+        <Animal7>Cat</Animal7>
+        <Animal8>Pretty Pig</Animal8>
+        <Animal9>Cow</Animal9>
+        <Animal10>Deer</Animal10>
+        <Animal11>Turtle</Animal11>
+        <Animal12>ana</Animal12>
+        <Animal13>Wolf</Animal13>
+        <Animal14>Fox</Animal14>
+        <Animal15>Blue Bird</Animal15>
+        <Animal16>Grizzle</Animal16>
+        <Animal17>Horse</Animal17>
+        <Animal18>Zebra</Animal18>
+        <Animal19>Panda</Animal19>
+        <Animal20>Black Bird</Animal20>
+        <Animal21>Lion</Animal21>
     </English>
         
     <Korean>
@@ -40,6 +69,8 @@
         <stage1_name>구름 많은 날</stage1_name>
         <stage2_name>노을</stage2_name>
         <stage3_name>눈 쌓인 광산</stage3_name>
+        <stage4_name>사막</stage4_name>
+        <stage5_name>해변</stage5_name>
         <stage_coming>준비중</stage_coming>
         <clear>클리어</clear>
         <tutorial_sentence1>반갑습니다. 롤링 애니멀은 처음이시죠?</tutorial_sentence1>
@@ -104,6 +135,8 @@
         <stage1_name>Багато хмар</stage1_name>
         <stage2_name>захід сонця</stage2_name>
         <stage3_name>Шахти</stage3_name>
+        <stage4_name>пустеля</stage4_name>
+        <stage5_name>пляж</stage5_name>
         <stage_coming>не готовий</stage_coming>
         <clear>Завершено</clear>
         <tutorial_sentence1>Приємно познайомитись. Ви коли-небудь пробували Rolling Animal?</tutorial_sentence1>
@@ -132,7 +165,33 @@
         <silver_box_name>Срібний коробка</silver_box_name>
         <gold_box_name>золото коробка</gold_box_name>
         <CoinRequire>У вас немає монети.</CoinRequire>
-        
+        <Loading>погрузка...</Loading>
+        <LoadingViewText1>Захищає отпрепятствій&#xA; один раз.</LoadingViewText1>
+        <LoadingViewText2>Ігрові нагороди&#xA;збільшені в 1,5 рази.</LoadingViewText2>
+        <LoadingViewText3>Кількість комбо&#xA;для лихоманки&#xA;зменшується на 50%.</LoadingViewText3>
+        <LoadingViewText4>Кількість комбо,&#xA;необхідне для лихоманки,&#xA;становить 50 комбо.</LoadingViewText4>
+        <Animal0>Собака</Animal0>
+        <Animal1>Качка</Animal1>
+        <Animal2>Курица</Animal2>
+        <Animal3>Чик</Animal3>
+        <Animal4>Вівці</Animal4>
+        <Animal5>Козел</Animal5>
+        <Animal6>Кролик</Animal6>
+        <Animal7>кішка</Animal7>
+        <Animal8>мила свиня</Animal8>
+        <Animal9>корова</Animal9>
+        <Animal10>олень</Animal10>
+        <Animal11>черепаха</Animal11>
+        <Animal12>ігуана</Animal12>
+        <Animal13>вовк</Animal13>
+        <Animal14>лисиця</Animal14>
+        <Animal15>Синій птах</Animal15>
+        <Animal16>Ведмідь</Animal16>
+        <Animal17>кінь</Animal17>
+        <Animal18>зебра</Animal18>
+        <Animal19>Панда</Animal19>
+        <Animal20>Чорний птах</Animal20>
+        <Animal21>Лев</Animal21>
     </Ukrainian>
     
     <Russian>
@@ -140,6 +199,8 @@
         <stage1_name>много облаков</stage1_name>
         <stage2_name>закат</stage2_name>
         <stage3_name>шахты</stage3_name>
+        <stage4_name>пустыня</stage4_name>
+        <stage5_name>пляж</stage5_name>
         <stage_coming>не готов</stage_coming>
         <clear>завершено</clear>
         <tutorial_sentence1>Приятно познакомиться. Вы когда-нибудь пробовали Rolling Animal?</tutorial_sentence1>
@@ -168,6 +229,33 @@
         <silver_box_name>Серебряный коробка</silver_box_name>
         <gold_box_name>золото коробка</gold_box_name>
         <CoinRequire>В вас нет монеты.</CoinRequire>
+        <Loading>погрузка...</Loading>
+        <LoadingViewText1>Защищает от&#xA;препятствий один раз.</LoadingViewText1>
+        <LoadingViewText2>Игровые награды&#xA;увеличены в 1,5 раза.</LoadingViewText2>
+        <LoadingViewText3>Количество комбо&#xA;длялихорадки&#xA;уменьшается на 50%.</LoadingViewText3>
+        <LoadingViewText4>Количество комбо, необходимое&#xA;для лихорадки,&#xA;составляет 50 комбо.</LoadingViewText4>
+        <Animal0>Собака</Animal0>
+        <Animal1>Утка</Animal1>
+        <Animal2>Курица</Animal2>
+        <Animal3>птенец</Animal3>
+        <Animal4>Овца</Animal4>
+        <Animal5>Козел</Animal5>
+        <Animal6>Кролик</Animal6>
+        <Animal7>Кошка</Animal7>
+        <Animal8>Милая свинья</Animal8>
+        <Animal9>корова</Animal9>
+        <Animal10>олень</Animal10>
+        <Animal11>черепаха</Animal11>
+        <Animal12>Игуана</Animal12>
+        <Animal13>волк</Animal13>
+        <Animal14>Лиса</Animal14>
+        <Animal15>Синяя птица</Animal15>
+        <Animal16>медведь</Animal16>
+        <Animal17>лошадь</Animal17>
+        <Animal18>зебра</Animal18>
+        <Animal19>Панда</Animal19>
+        <Animal20>Черная птица</Animal20>
+        <Animal21>лев</Animal21>
     </Russian>
 </languages>
     

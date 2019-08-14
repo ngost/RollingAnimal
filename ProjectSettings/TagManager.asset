@@ -9,6 +9,9 @@ TagManager:
   - Bronze_Box
   - Silver_Box
   - Gold_Box
+  - ground
+  - items
+  - hurdles
   layers:
   - Default
   - TransparentFX
