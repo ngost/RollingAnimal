@@ -8,12 +8,17 @@ public class Activator : MonoBehaviour
     public GameObject player;
     bool onetimeFlag = true;
     float positionZ;
+    bool[] onetimeDelay;
     // Start is called before the first frame update
     void Start()
     {
         grounds = new List<GameObject>();
         items = new List<GameObject>();
         hurdles = new List<GameObject>();
+        onetimeDelay = new bool[3];
+        onetimeDelay[0] = true;
+        onetimeDelay[1] = true;
+        onetimeDelay[2] = true;
 
         GameObject[] objs = GameObject.FindGameObjectsWithTag("ground");
         GameObject[] obj_items = GameObject.FindGameObjectsWithTag("items");
@@ -32,7 +37,6 @@ public class Activator : MonoBehaviour
             hurdles.Add(obj_hurdles[i]);
         }
 
-
         StartCoroutine(CheckingGround());
         StartCoroutine(CheckingItems());
         StartCoroutine(CheckingHurdles());
@@ -41,9 +45,14 @@ public class Activator : MonoBehaviour
 
     IEnumerator CheckingHurdles()
     {
+        if (onetimeDelay[1])
+        {
+            onetimeDelay[1] = false;
+            yield return new WaitForSeconds(0.2f);
+        }
         for (int i = 0; i < hurdles.Count; i++)
         {
-            if (hurdles[i].transform.position.z > player.transform.position.z + 20 || hurdles[i].transform.position.z < player.transform.position.z - 8)
+            if (hurdles[i].transform.position.z > player.transform.position.z + 20 || hurdles[i].transform.position.z < player.transform.position.z - 15)
             {
                 hurdles[i].SetActive(false);
             }
@@ -59,6 +68,12 @@ public class Activator : MonoBehaviour
 
     IEnumerator CheckingItems()
     {
+        if (onetimeDelay[2])
+        {
+            onetimeDelay[2] = false;
+            yield return new WaitForSeconds(0.3f);
+        }
+
         for (int i = 0; i < items.Count; i++)
         {
             if (items[i].transform.position.z > player.transform.position.z + 20 || items[i].transform.position.z < player.transform.position.z - 8)
@@ -76,6 +91,12 @@ public class Activator : MonoBehaviour
     }
     IEnumerator CheckingGround()
     {
+        if (onetimeDelay[0])
+        {
+            onetimeDelay[0] = false;
+            yield return new WaitForSeconds(0.1f);
+        }
+//        Debug.Log(player.transform.position.z);
         for (int i = 0; i < grounds.Count; i++)
         {
             
@@ -85,6 +106,7 @@ public class Activator : MonoBehaviour
             //    //grounds.RemoveAt(i);
             //}
 
+            
             //else
             if (grounds[i].transform.position.z > player.transform.position.z+20 || grounds[i].transform.position.z < player.transform.position.z - 8)
             {

@@ -11,7 +11,7 @@ public static class StaticInfoManager
     public static int maxCombo;
     public static float clearPercent;
     public static int current_stage;
-    public static int life = 100;
+    public static int life = 1;
     public static bool background_sound_enable;
     public static bool effect_sound_enable;
     public static Vector3 last_checkpoint = new Vector3(0f, 1f, 0f);
@@ -30,7 +30,7 @@ public static class StaticInfoManager
         isCleared = false;
         maxCombo = 0;
         clearPercent = 0f;
-        life = 100;
+        life = 1;
         last_checkpoint = new Vector3(0f,1f,0f);
         current_player_position = 0f;
     }
