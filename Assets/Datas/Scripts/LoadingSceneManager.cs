@@ -42,6 +42,7 @@ public class LoadingSceneManager : MonoBehaviour
         urls = new string[10];
         urls[4] = "https://www.dropbox.com/s/ovs2ma5nmuljm7s/stage4_bundle?dl=1";
         urls[5] = "https://www.dropbox.com/s/y2o99y974kq6rt2/stage5_bundle?dl=1";
+        urls[6] = "https://www.dropbox.com/s/9q4q6494qu90kn8/stage6_bundle?dl=1";
         //check using item
         CheckUsingItem();
 
@@ -173,7 +174,7 @@ public class LoadingSceneManager : MonoBehaviour
         while (!Caching.ready)
             yield return null;
 
-        using (uwr = UnityWebRequestAssetBundle.GetAssetBundle(url, 2, 0))
+        using (uwr = UnityWebRequestAssetBundle.GetAssetBundle(url, StaticInfoManager.Asset_Bundle_Version, 0))
         {
 
             StartCoroutine(DownloadProgressing());

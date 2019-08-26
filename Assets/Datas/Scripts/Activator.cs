@@ -52,6 +52,9 @@ public class Activator : MonoBehaviour
         }
         for (int i = 0; i < hurdles.Count; i++)
         {
+            if (hurdles[i] == null)
+                continue;
+
             if (hurdles[i].transform.position.z > player.transform.position.z + 20 || hurdles[i].transform.position.z < player.transform.position.z - 15)
             {
                 hurdles[i].SetActive(false);
@@ -76,6 +79,8 @@ public class Activator : MonoBehaviour
 
         for (int i = 0; i < items.Count; i++)
         {
+            if (items[i] == null)
+                continue;
             if (items[i].transform.position.z > player.transform.position.z + 20 || items[i].transform.position.z < player.transform.position.z - 8)
             {
                 items[i].SetActive(false);
@@ -99,14 +104,16 @@ public class Activator : MonoBehaviour
 //        Debug.Log(player.transform.position.z);
         for (int i = 0; i < grounds.Count; i++)
         {
-            
+
             //if (grounds[i].transform.position.z < player.transform.position.z-20)
             //{
             //    grounds[i].SetActive(false);
             //    //grounds.RemoveAt(i);
             //}
 
-            
+            if (grounds[i] == null)
+                continue;
+
             //else
             if (grounds[i].transform.position.z > player.transform.position.z+20 || grounds[i].transform.position.z < player.transform.position.z - 8)
             {

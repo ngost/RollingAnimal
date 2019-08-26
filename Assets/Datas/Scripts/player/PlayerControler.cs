@@ -30,6 +30,8 @@ public class PlayerControler : MonoBehaviour
     GameObject clear_percent;
     GameObject combo_obj;
     GameObject ControlBackground;
+
+    GameObject timer_obj;
     Image ControlBackgroundImg;
 
     RectTransform display_transform;
@@ -46,6 +48,7 @@ public class PlayerControler : MonoBehaviour
     ClearCheckManager ccm;
     Text percent_text;
     Text comboText;
+    Text timerText;
 
     public int percent;
     public int maxCombo;
@@ -75,10 +78,14 @@ public class PlayerControler : MonoBehaviour
 
         clear_percent = m_canvas.transform.Find("ClearPercent").gameObject;
         combo_obj = m_canvas.transform.Find("Combo").gameObject;
+        timer_obj = m_canvas.transform.Find("Timer").gameObject;
+
         comboText = combo_obj.GetComponent<Text>();
         percent_text = clear_percent.GetComponent<Text>();
+        timerText = timer_obj.GetComponent<Text>();
 
         clear_percent.GetComponent<RectTransform>().localPosition = new Vector3(Screen.width * 0.38f, Screen.height * 0.47f, 0);
+        timer_obj.GetComponent<RectTransform>().localPosition = new Vector3(-Screen.width * 0.3f, Screen.height * 0.47f, 0);
         combo_obj.GetComponent<RectTransform>().localPosition = new Vector3(0, Screen.height * 0.25f, 0);
         ControlBackground = GameObject.Find("ControlBackground");
         ControlBackgroundImg = ControlBackground.GetComponent<Image>();
@@ -88,6 +95,10 @@ public class PlayerControler : MonoBehaviour
         comboText.fontSize = (int)Mathf.Round(Screen.width * 0.11f);
         percent_text.fontSize = (int)Mathf.Round(Screen.width * 0.1f);
         percent_text.text = "0" + " %";
+
+        timerText.fontSize = (int)Mathf.Round(Screen.width * 0.1f);
+        timerText.text = "00 : 00";
+
         StartCoroutine("StartCountDown");
 
     }

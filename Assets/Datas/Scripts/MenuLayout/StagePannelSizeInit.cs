@@ -52,7 +52,7 @@ public class StagePannelSizeInit : MonoBehaviour
         {
             Image image = gameObject.GetComponent<Image>();
             Color tempColor = image.color;
-            tempColor.a = 0.4f;
+            tempColor.a = 0.6f;
             image.color = tempColor;
         }
         else

@@ -82,6 +82,8 @@ public class PlayerActionControler : MonoBehaviour
     GameObject footParticleObj;
     ParticleSystem footParticle;
 
+    GameObject timerObj;
+    StageTimer timerScript;
     void Start()
     {
         footObjs = new GameObject[5];
@@ -116,12 +118,14 @@ public class PlayerActionControler : MonoBehaviour
         //bombparticles = bombParticle.GetComponentsInChildren<ParticleSystem>();
         gravity = globalGravity * gravityScale * Vector3.up;
         cameraScript = (SimpleCameraControl)cameraObj.GetComponent(typeof(SimpleCameraControl));
-        
         if (!DataLoadAndSave.LoadSoundData("effect_sound"))
         {
             Debug.Log("okok");
             audioSource.enabled = false;
         }
+        timerObj = GameObject.Find("TimerScript");
+        timerScript = timerObj.GetComponent<StageTimer>();
+
 
     }
     public IEnumerator FeverActivate()
@@ -211,6 +215,7 @@ public class PlayerActionControler : MonoBehaviour
     {
         if (isAlive)
         {
+            timerScript.TimerStopAndSave();
             AllStop();
 //            m_rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
             playDeadsound();

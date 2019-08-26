@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
+using System.Threading.Tasks;
 
 public class BackBtnManager : MonoBehaviour
 {
@@ -29,6 +33,10 @@ public class BackBtnManager : MonoBehaviour
                     }
                     else
                     {
+                        if (Application.platform == RuntimePlatform.Android)
+                        {
+                            new AndroidJavaClass("java.lang.System").CallStatic("exit", 0);
+                        }
                         Application.Quit();
                         return;
                     }

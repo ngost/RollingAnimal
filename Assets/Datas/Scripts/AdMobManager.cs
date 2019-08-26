@@ -14,11 +14,15 @@ public class AdMobManager : MonoBehaviour
     public string ios_rewarded_id;
     public string android_interstitial_id;
     public string ios_interstitial_id;
+    public string android_coin_rewarded_id;
+    string type;
+    double amount;
 
     AdRequest request;
     private BannerView bannerView;
     private InterstitialAd interstitialAd;
     private RewardBasedVideoAd rewardBasedAd;
+    private RewardBasedVideoAd coinRewardBasedAd;
 
     public void Awake()
     {
@@ -37,11 +41,12 @@ public class AdMobManager : MonoBehaviour
     {
             MobileAds.Initialize(android_rewarded_id);
             rewardBasedAd = RewardBasedVideoAd.Instance;
+            coinRewardBasedAd = RewardBasedVideoAd.Instance;
             RequestRewardBasedVideo();
-
-            //MobileAds.Initialize(android_rewarded_id);
-//            interstitialAd = new InterstitialAd(adUnitId); ;
-            RequestInterstitialAd();
+            RequestCoinRewardBasedVideo();
+        //MobileAds.Initialize(android_rewarded_id);
+        //            interstitialAd = new InterstitialAd(adUnitId); ;
+        RequestInterstitialAd();
 
         //RequestBannerAd();
 
@@ -79,7 +84,8 @@ public class AdMobManager : MonoBehaviour
 #elif UNITY_IOS
         adUnitId = ios_interstitialAdUnitId;
 #endif
- 
+
+        //adUnitId = "ca-app-pub-3940256099942544/1033173712"; //testId
         interstitialAd = new InterstitialAd(adUnitId);
         AdRequest request = new AdRequest.Builder().Build();
  
@@ -100,7 +106,7 @@ public class AdMobManager : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
 
-
+        //adUnitId = "ca-app-pub-3940256099942544/5224354917"; // testId
 
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
@@ -111,33 +117,89 @@ public class AdMobManager : MonoBehaviour
         rewardBasedAd.OnAdClosed += HandleRewardBasedVideoClosed;
         rewardBasedAd.OnAdFailedToLoad += HandleRewardBasedVideoFailedToLoad;
 
+    }
+
+    //보상형 광고 for coin
+    private void RequestCoinRewardBasedVideo()
+    {
+#if UNITY_ANDROID
+        string adUnitId = android_coin_rewarded_id;
+#elif UNITY_IPHONE
+        string adUnitId = "ca-app-pub-3940256099942544/1712485313";
+#else
+        string adUnitId = "unexpected_platform";
+#endif
+
+        //adUnitId = "ca-app-pub-3940256099942544/5224354917"; // testID
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+        // Load the rewarded video ad with the request.
+        this.coinRewardBasedAd.LoadAd(request, adUnitId);
+
+        coinRewardBasedAd.OnAdRewarded += HandleRewardBasedVideoRewarded;
+        coinRewardBasedAd.OnAdClosed += HandleRewardBasedVideoClosed;
+        coinRewardBasedAd.OnAdFailedToLoad += HandleRewardBasedVideoFailedToLoad;
 
     }
 
+
     public void HandleRewardBasedVideoRewarded(object sender, Reward args)
     {
-        string type = args.Type;
-        double amount = args.Amount;
-        print("User rewarded with: " + amount.ToString() + " " + type);
+        type = SceneManager.GetActiveScene().name;
+        switch (type)
+        {
+            case "ShopScene":
+                SceneManager.LoadScene("GetCoinByAdScene");
+                break;
+            case "GreenRoomScene":
+                LoadingSceneManager.LoadScene("Stage_" + StaticInfoManager.current_stage + "_" + (StaticInfoManager.level + 1));
+                //print("User rewarded with: " + amount.ToString() + " " + type);
+                break;
+        }
+
     }
 
     public void HandleRewardBasedVideoClosed(object sender, EventArgs args)
     {
         //RequestRewardBasedVideo();
+//        if(args)
         rewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
         rewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
         rewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
-        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage + "_"+(StaticInfoManager.level+1));
+
+        coinRewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
+        coinRewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
+        coinRewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
+
+        RequestRewardBasedVideo();
+        RequestCoinRewardBasedVideo();
+        //        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage + "_"+(StaticInfoManager.level+1));
 
     }
 
     public void HandleRewardBasedVideoFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        SSTools.ShowMessage("보여 드릴 광고가 없습니다.", SSTools.Position.bottom, SSTools.Time.oneSecond);
         rewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
         rewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
         rewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
-        SimpleSceneFader.ChangeSceneWithFade("Stage_" + StaticInfoManager.current_stage + "_" + (StaticInfoManager.level + 1));
+
+        coinRewardBasedAd.OnAdRewarded -= HandleRewardBasedVideoRewarded;
+        coinRewardBasedAd.OnAdClosed -= HandleRewardBasedVideoClosed;
+        coinRewardBasedAd.OnAdFailedToLoad -= HandleRewardBasedVideoFailedToLoad;
+
+        RequestRewardBasedVideo();
+        RequestCoinRewardBasedVideo();
+
+        if (SceneManager.GetActiveScene().name.Equals("GreenRoomScene"))
+        {
+            SSTools.ShowMessage(StaticInfoManager.lang.getString("adFail"), SSTools.Position.bottom, SSTools.Time.oneSecond);
+            LoadingSceneManager.LoadScene("Stage_" + StaticInfoManager.current_stage + "_" + (StaticInfoManager.level + 1));
+        }
+        if (SceneManager.GetActiveScene().name.Equals("GreenRoomScene"))
+        {
+            SSTools.ShowMessage(StaticInfoManager.lang.getString("adFail"), SSTools.Position.bottom, SSTools.Time.oneSecond);
+        }
     }
 
     //ad exit callback
@@ -158,7 +220,7 @@ public class AdMobManager : MonoBehaviour
     }
     public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
     {
-        SSTools.ShowMessage("보여 드릴 광고가 없습니다.", SSTools.Position.bottom, SSTools.Time.oneSecond);
+        SSTools.ShowMessage(StaticInfoManager.lang.getString("adFail"), SSTools.Position.bottom, SSTools.Time.oneSecond);
         interstitialAd.OnAdClosed -= HandleOnInterstitialAdClosed;
         interstitialAd.OnAdFailedToLoad -= HandleOnAdFailedToLoad;
         StaticInfoManager.life = 1;
@@ -173,6 +235,11 @@ public class AdMobManager : MonoBehaviour
     public void ShowRewardAd()
     {
         rewardBasedAd.Show();
+    }
+
+    public void ShowCoinRewardAd()
+    {
+        coinRewardBasedAd.Show();
     }
 
     public void ShowBannerAd()

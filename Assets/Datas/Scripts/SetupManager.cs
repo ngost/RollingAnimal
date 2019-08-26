@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Facebook.Unity;
 using System.IO;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
+using System.Threading.Tasks;
 
 public class SetupManager : MonoBehaviour
 {
@@ -19,6 +23,7 @@ public class SetupManager : MonoBehaviour
             // Already initialized, signal an app activation App Event
             FB.ActivateApp();
         }
+        
     }
 
     private void InitCallback()
@@ -55,7 +60,7 @@ public class SetupManager : MonoBehaviour
     {
         Lang langData;
         TextAsset textAsset = (TextAsset)Resources.Load<TextAsset>("LanguageSet/lang");
-        switch (SystemLanguage.English/*Application.systemLanguage*/)
+        switch (Application.systemLanguage)
         {
             case SystemLanguage.Korean:
                 langData = new Lang(textAsset.text, "Korean");
@@ -80,5 +85,63 @@ public class SetupManager : MonoBehaviour
         menu_retro.CursorCharacter = StaticInfoManager.lang.getString("touch_text");
 
         GameDataLoader loader = new GameDataLoader();
+
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
+        PlayGamesPlatform.InitializeInstance(config);
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
+
+        GooglePlayServiceSetup();
+    }
+    public void GooglePlayServiceSetup()
+    {
+        StartAnotherScene startManager = (StartAnotherScene)GameObject.Find("SceneManager").GetComponent(typeof(StartAnotherScene));
+        //구글 플레이 게임 서비스 초기
+
+        if (!PlayGamesPlatform.Instance.IsAuthenticated())
+        {
+
+            PlayGamesPlatform.Instance.Authenticate((bool success) =>
+            {
+                //handle success or fail.
+                if (success)
+                {
+                    SSTools.ShowMessage(Social.localUser.userName+"! "+StaticInfoManager.lang.getString("LoginSuccess"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+                    startManager.canTouchForTitle = true;
+					Debug.Log("login");
+                }
+                else
+                {
+					Debug.Log("login fail");
+					SSTools.ShowMessage(StaticInfoManager.lang.getString("LoginFail"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+                    StartCoroutine(QuitAfter3Second());
+
+                    if (Application.platform == RuntimePlatform.OSXEditor)
+                    {
+                        startManager.canTouchForTitle = true;
+                    }
+                }
+            });
+        }
+        else
+        {
+			Debug.Log("already login");
+			SSTools.ShowMessage(Social.localUser.userName + "! " + StaticInfoManager.lang.getString("LoginSuccess"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+            startManager.canTouchForTitle = true;
+        }
+
+
+        		
+    }
+
+    IEnumerator QuitAfter3Second()
+    {
+        yield return new WaitForSeconds(3f);
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            new AndroidJavaClass("java.lang.System").CallStatic("exit", 0);
+        }
+        Application.Quit();
+
     }
 }

@@ -104,6 +104,10 @@ public static class DataLoadAndSave
         {
             case 0:
                 returnInt = PlayerPrefs.GetInt("topStage_easy", 0);
+                if (returnInt < 3)
+                {
+                    returnInt = 2;
+                }
                 break;
             case 1:
                 returnInt = PlayerPrefs.GetInt("topStage_normal", 0);
@@ -205,5 +209,12 @@ public static class DataLoadAndSave
         return stageName;
     }
 
-
+    public static int LoadReviewingStatus()
+    {
+        return PlayerPrefs.GetInt("isReview",0);
+    }
+    public static void SetReviewingStatus()
+    {
+        PlayerPrefs.SetInt("isReview", 1);
+    }
 }

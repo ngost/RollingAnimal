@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
 using Animmal.Animmals1;
-
+using GooglePlayGames;
 
 public class MenuBtnEventListener : MonoBehaviour
 {
@@ -220,7 +220,7 @@ public class MenuBtnEventListener : MonoBehaviour
             {
                 if (StaticInfoManager.level == 0)
                 {
-                    SSTools.ShowMessage("난이도 설정 변경 : 보통", SSTools.Position.bottom, SSTools.Time.oneSecond);
+                    SSTools.ShowMessage(StaticInfoManager.lang.getString("level_medium"), SSTools.Position.bottom, SSTools.Time.oneSecond);
                     StaticInfoManager.level = 1;
                     level_btn.GetComponent<Image>().sprite = Resources.Load<Sprite>("textures/icon/level_normal");
                     menu_controler.changeCurrentStageInfo();
@@ -258,6 +258,12 @@ public class MenuBtnEventListener : MonoBehaviour
             {
                 StartCoroutine("SwitchRight");
             }
+			if (name.Equals("Rank"))
+			{
+                Debug.Log("rank show");
+                Social.ShowLeaderboardUI();
+                
+			}
 
             if (name.Equals("select"))
             {
@@ -323,6 +329,12 @@ public class MenuBtnEventListener : MonoBehaviour
                 {
                     SSTools.ShowMessage(StaticInfoManager.lang.getString("CoinRequire"), SSTools.Position.bottom, SSTools.Time.twoSecond);
                 }
+            }
+            if (name.Equals("AdCoin"))
+            {
+                GameObject adMob = GameObject.Find("AdMobManager");
+                AdMobManager adMobManager = (AdMobManager)adMob.GetComponent(typeof(AdMobManager));
+                adMobManager.ShowCoinRewardAd();
             }
         }
 

@@ -22,7 +22,7 @@ public class MenuControler : MonoBehaviour
     public bool isTouching;
     GameObject level_btn;
     public bool lefting = false, righting = false;
-    GameObject Content;
+    public GameObject Content;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,11 +43,36 @@ public class MenuControler : MonoBehaviour
         }
 
         //stage pannel size init
-        Content = GameObject.Find("Content");
+//        Content = GameObject.Find("Content");
         StagePannelSizeInit[] sizeInitor = Content.GetComponentsInChildren<StagePannelSizeInit>();
         foreach (StagePannelSizeInit initor in sizeInitor)
         {
             initor.SetBackgroundAlpha();
+        }
+        if(StaticInfoManager.lang == null)
+        {
+            Lang langData;
+            TextAsset textAsset = (TextAsset)Resources.Load<TextAsset>("LanguageSet/lang");
+            switch (Application.systemLanguage)
+            {
+                case SystemLanguage.Korean:
+                    langData = new Lang(textAsset.text, "Korean");
+                    Debug.Log("Language : Korean");
+                    break;
+                case SystemLanguage.Ukrainian:
+                    langData = new Lang(textAsset.text, "Ukrainian");
+                    Debug.Log("Language : Ukrainian");
+                    break;
+                case SystemLanguage.Russian:
+                    langData = new Lang(textAsset.text, "Russian");
+                    Debug.Log("Language : Russian");
+                    break;
+                default:
+                    langData = new Lang(textAsset.text, "English");
+                    Debug.Log("Language : English");
+                    break;
+            }
+            StaticInfoManager.lang = langData;
         }
         //Stage Name Init
         DataLoadAndSave.AddNewStageName(1, StaticInfoManager.lang.getString("stage1_name"));
@@ -55,7 +80,7 @@ public class MenuControler : MonoBehaviour
         DataLoadAndSave.AddNewStageName(3, StaticInfoManager.lang.getString("stage3_name"));
         DataLoadAndSave.AddNewStageName(4, StaticInfoManager.lang.getString("stage4_name"));
         DataLoadAndSave.AddNewStageName(5, StaticInfoManager.lang.getString("stage5_name"));
-
+        DataLoadAndSave.AddNewStageName(6, StaticInfoManager.lang.getString("stage6_name"));
         //stage_clip = new AudioClip[total_stage_num];
         last_stage_number = 0;
         panel = Content;
@@ -193,6 +218,7 @@ public class MenuControler : MonoBehaviour
 
     public void changeCurrentStageInfo()
     {
+        Debug.Log(last_stage_number);
         string stageName = DataLoadAndSave.LoadStageName(last_stage_number + 1);
         int clearPercent = DataLoadAndSave.LoadStageClearPercent(last_stage_number + 1, StaticInfoManager.level);
         stageNameText.text = stageName;

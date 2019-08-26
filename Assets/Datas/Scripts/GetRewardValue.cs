@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
+using UnityEngine.SocialPlatforms;
 
 public class GetRewardValue : MonoBehaviour
 {
@@ -103,8 +106,116 @@ public class GetRewardValue : MonoBehaviour
         {
             ValueRewardAudio.enabled = false;
         }
+        //google readerBoard upload
+        if(StaticInfoManager.isCleared && Social.localUser.authenticated && StaticInfoManager.current_stage !=0)
+        {
+            string ReaderboardID = "";
+            Debug.Log("Report Time Score :"+StaticInfoManager.lastTimerFloat);
 
+            switch (StaticInfoManager.current_stage)
+            {
+                case 1:
+                    if(StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQBw";
+                    }
+                    else if(StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQCw";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQDA";
+                    }
+
+                    break;
+                case 2:
+                    if (StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQDQ";
+                    }
+                    else if (StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQDg";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQDw";
+                    }
+                    break;
+                case 3:
+                    if (StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQEA";
+                    }
+                    else if (StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQEg";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQEQ";
+                    }
+                    break;
+                case 4:
+                    if (StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQEw";
+                    }
+                    else if (StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQFA";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQFQ";
+                    }
+                    break;
+                case 5:
+                    if (StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQFg";
+                    }
+                    else if (StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQFw";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQGA";
+                    }
+                    break;
+                case 6:
+                    if (StaticInfoManager.level == 0)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQGQ";
+                    }
+                    else if (StaticInfoManager.level == 1)
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQGg";
+                    }
+                    else
+                    {
+                        ReaderboardID = "CgkI4bHZyOoaEAIQGw";
+                    }
+                    break;
+
+            }
+            if (!ReaderboardID.Equals("")){
+                Social.ReportScore(SecFloatToLong(StaticInfoManager.lastTimerFloat), ReaderboardID, (bool success) => {
+                    if(success)
+                        SSTools.ShowMessage(StaticInfoManager.lang.getString("ScoreUploaded"), SSTools.Position.bottom, SSTools.Time.twoSecond);
+                });
+            }
+
+        }
         StaticInfoManager.ValueInit();
+    }
+    public long SecFloatToLong(float seconds) {
+        seconds = seconds * 1000;
+        long times = Convert.ToInt64(seconds);
+        Debug.Log(times);
+        return times;
     }
 
     void FontSizeSetting()

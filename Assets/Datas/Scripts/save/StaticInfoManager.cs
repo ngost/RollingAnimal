@@ -23,6 +23,8 @@ public static class StaticInfoManager
     public static bool shieldEnable;//is used?
     public static bool feverEnable;
     public static bool rewardEnable;
+    public const int Asset_Bundle_Version = 4;
+    public static float lastTimerFloat;
 
     public static void ValueInit()
     {
@@ -33,5 +35,6 @@ public static class StaticInfoManager
         life = 1;
         last_checkpoint = new Vector3(0f,1f,0f);
         current_player_position = 0f;
+        lastTimerFloat = 0f;
     }
 }

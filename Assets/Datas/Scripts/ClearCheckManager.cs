@@ -13,6 +13,8 @@ public class ClearCheckManager : MonoBehaviour
     SimpleCameraControl cameraControl;
     public float clearZ;
     public AudioClip clip;
+    GameObject timerObject;
+    StageTimer timerScript;
 
     bool onetime = true;
     // Start is called before the first frame update
@@ -22,6 +24,8 @@ public class ClearCheckManager : MonoBehaviour
         cameraControl = (SimpleCameraControl)actor_camera.GetComponent(typeof(SimpleCameraControl));
         player_controler = (PlayerControler) player.GetComponent(typeof(PlayerControler));
         player_audio = player.GetComponent<AudioSource>();
+        timerObject = GameObject.Find("TimerScript");
+        timerScript = timerObject.GetComponent<StageTimer>();
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class ClearCheckManager : MonoBehaviour
     {
         if(player.transform.position.z >= clearZ)
         {
+            timerScript.TimerStopAndSave();
             control.isClear = true;
             //            cameraControl.actor = null;
             cameraControl.stop = true;

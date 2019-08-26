@@ -30,7 +30,9 @@ public class DialogTrigger : MonoBehaviour
         if (SceneManager.GetActiveScene().name.Equals("GreenRoomScene"))
         {
             adMobManager.ShowRewardAd();
-            Debug.Log("rewarded show");
+            //LoadingSceneManager.LoadScene("Stage_" + StaticInfoManager.current_stage + "_" + (StaticInfoManager.level + 1));
+            //Debug.Log("c_stage: "+StaticInfoManager.current_stage);
+            //Debug.Log(StaticInfoManager.level);
         }
         else
         {
@@ -43,5 +45,18 @@ public class DialogTrigger : MonoBehaviour
     public void GiveUp()
     {
         SimpleSceneFader.ChangeSceneWithFade("RewardScene");
+    }
+
+    public void Review()
+    {
+        DataLoadAndSave.SetReviewingStatus();
+        Application.OpenURL("market://details?id=" + Application.identifier);
+        Destroy(GameObject.Find("ReviewDialog(Clone)"),2f);
+    }
+
+    public void Cancle()
+    {
+        DataLoadAndSave.SetReviewingStatus();
+        Destroy(GameObject.Find("ReviewDialog(Clone)"));
     }
 }

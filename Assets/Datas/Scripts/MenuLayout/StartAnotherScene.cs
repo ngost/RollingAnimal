@@ -6,6 +6,7 @@ using System;
 
 public class StartAnotherScene : MonoBehaviour
 {
+    public bool canTouchForTitle = false;
     AudioSource source;
     bool onetime = true;
     BoxControler box_script;
@@ -34,6 +35,7 @@ public class StartAnotherScene : MonoBehaviour
     }
     void OnMouseDown()
     {
+
         if (SceneManager.GetActiveScene().name.Equals("BoxScene"))
         {
             if (box_script == null && boxTimer<=0)
@@ -132,32 +134,36 @@ public class StartAnotherScene : MonoBehaviour
             }
         }
 
-        if (onetime)
+        if (canTouchForTitle)
         {
-            onetime = false;
-            
-
-            
-
-            //        Debug.Log("clicked");
-
-
-            if (SceneManager.GetActiveScene().name.Equals("TitleScene"))
+            if (onetime)
             {
+                onetime = false;
 
 
-                //StaticInfoManager.current_stage = 0;
-                source.Play();
-                if (DataLoadAndSave.LoadTutorialState().Equals(0))
+
+
+                //        Debug.Log("clicked");
+
+
+                if (SceneManager.GetActiveScene().name.Equals("TitleScene"))
                 {
-                    SimpleSceneFader.ChangeSceneWithFade("Tutorial");
-                }
-                else
-                {
-                    SimpleSceneFader.ChangeSceneWithFade("GreenRoomScene");
+
+
+                    //StaticInfoManager.current_stage = 0;
+                    source.Play();
+                    if (DataLoadAndSave.LoadTutorialState().Equals(0))
+                    {
+                        SimpleSceneFader.ChangeSceneWithFade("Tutorial");
+                    }
+                    else
+                    {
+                        SimpleSceneFader.ChangeSceneWithFade("GreenRoomScene");
+                    }
                 }
             }
         }
+        
     }
 
     void DestroySingletonSound()

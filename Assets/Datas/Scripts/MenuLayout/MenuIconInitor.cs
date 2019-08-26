@@ -12,11 +12,13 @@ public class MenuIconInitor : MonoBehaviour
     GameObject stageNameText;
     GameObject stageClearPercentText;
     GameObject rightArrow,leftArrow;
+    GameObject rankBtn;
     GameObject levelIcon;
     GameObject backIcon;
     GameObject bronzeBuyIcon;
     GameObject silverBuyIcon;
     GameObject goldBuyIcon;
+    GameObject adIcon;
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,17 @@ public class MenuIconInitor : MonoBehaviour
 
             r_arrow_transfrom.sizeDelta = new Vector2(Screen.width * 0.1f, Screen.width * 0.1f);
             l_arrow_transfrom.sizeDelta = new Vector2(Screen.width * 0.1f, Screen.width * 0.1f);
+
+            rankBtn = transform.Find("RankBtn").gameObject;
+
+            RectTransform rank_btn_transform = rankBtn.GetComponent<RectTransform>();
+            float Rank_Icon_width = Screen.width * 0.18f;
+            float Rank_Icon_height = Coin_Icon_height;
+
+            rank_btn_transform.sizeDelta = new Vector2(Rank_Icon_width, Rank_Icon_height);
+            rank_btn_transform.anchoredPosition3D = new Vector3(Rank_Icon_width * 0.5f, Rank_Icon_height * -0.5f - (Rank_Icon_height * 2.4f), 0f);
+
+
         }
         else if (SceneManager.GetActiveScene().name.Equals("ShopScene"))
         {
@@ -152,6 +165,19 @@ public class MenuIconInitor : MonoBehaviour
             float Character_Icon_height = Coin_Icon_height;
             character_trans.sizeDelta = new Vector2(Character_Icon_width, Character_Icon_height);
             character_trans.anchoredPosition3D = new Vector3(Character_Icon_width * 0.5f + (Screen.width * 0.18f) * 1, Character_Icon_height * -0.5f, 0f);
+
+            //ad Icon layout init
+            adIcon = transform.Find("AdBtn").gameObject;
+            RectTransform ad_trans = adIcon.GetComponent<RectTransform>();
+            float ad_Icon_width = Screen.width * 0.9f;
+            float ad_Icon_height = ad_Icon_width * 0.13f;
+            ad_trans.sizeDelta = new Vector2(ad_Icon_width, ad_Icon_height);
+            ad_trans.anchoredPosition3D = new Vector3(ad_Icon_width * -0.5f - ScreenWidth * 0.05f, -ScreenHeight * 0.95f, 0f);
+//            adIcon.transform.Find("SilverCoinText").GetComponent<Text>().fontSize = Mathf.RoundToInt(ScreenWidth * 0.07f);
+            Text AdIconText = adIcon.transform.Find("AdCoinText").GetComponent<Text>();
+            AdIconText.fontSize = Mathf.RoundToInt(ScreenWidth * 0.05f);
+            AdIconText.text = StaticInfoManager.lang.getString("ad_coin_name");
+
         }
         else if (SceneManager.GetActiveScene().name.Equals("InventoryScene"))
         {

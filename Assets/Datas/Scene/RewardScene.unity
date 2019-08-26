@@ -2308,6 +2308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19f69f0e5cf744cfa9a0836b94560381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canTouchForTitle: 0
 --- !u!4 &1540153819
 Transform:
   m_ObjectHideFlags: 0
